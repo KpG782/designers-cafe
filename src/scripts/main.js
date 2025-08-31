@@ -325,4 +325,79 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.to(btn, { scale: 1, duration: 0.3, ease: "power2.out" });
     });
   });
+
+  // Animated underline for navbar links
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("mouseenter", function () {
+      gsap.to(this, {
+        borderBottom: "3px solid var(--pencil, #D4943A)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    });
+    link.addEventListener("mouseleave", function () {
+      gsap.to(this, {
+        borderBottom: "3px solid transparent",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    });
+  });
+
+  // Animate logo on page load
+  const logoImg = document.querySelector("nav img");
+  if (logoImg) {
+    gsap.fromTo(
+      logoImg,
+      { scale: 0.7, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1, ease: "back.out(1.7)" }
+    );
+  }
+
+  // Animate menu category buttons on hover
+  document.querySelectorAll(".category-btn").forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      gsap.to(btn, {
+        scale: 1.08,
+        boxShadow: "0 4px 24px 0 var(--coffee-200, #EFCCA5)",
+        duration: 0.2,
+      });
+    });
+    btn.addEventListener("mouseleave", () => {
+      gsap.to(btn, {
+        scale: 1,
+        boxShadow: "0 0px 0px 0 transparent",
+        duration: 0.2,
+      });
+    });
+  });
+
+  // Animate gallery items on hover
+  document.querySelectorAll(".gallery-item img").forEach((img) => {
+    img.addEventListener("mouseenter", () => {
+      gsap.to(img, { scale: 1.05, duration: 0.3, ease: "power2.out" });
+    });
+    img.addEventListener("mouseleave", () => {
+      gsap.to(img, { scale: 1, duration: 0.3, ease: "power2.out" });
+    });
+  });
+
+  // Animate footer logo on scroll into view
+  const footerLogo = document.querySelector("footer svg");
+  if (footerLogo) {
+    gsap.fromTo(
+      footerLogo,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: footerLogo,
+          start: "top 90%",
+        },
+      }
+    );
+  }
 });

@@ -14,21 +14,21 @@
         </p>
         <!-- Stats -->
         <div class="grid grid-cols-3 gap-6 text-center mb-8">
-          <div class="stat-item">
+          <div class="stat-item" style="animation-delay:0.1s">
             <div class="text-3xl font-bold text-pencil mb-2" data-count="500">0</div>
             <p class="text-coffee-600 text-sm">Creative Minds Served</p>
           </div>
-          <div class="stat-item">
+          <div class="stat-item" style="animation-delay:0.2s">
             <div class="text-3xl font-bold text-pencil mb-2" data-count="15">0</div>
             <p class="text-coffee-600 text-sm">Signature Drinks</p>
           </div>
-          <div class="stat-item">
+          <div class="stat-item" style="animation-delay:0.3s">
             <div class="text-3xl font-bold text-pencil mb-2" data-count="2">0</div>
             <p class="text-coffee-600 text-sm">Years Brewing</p>
           </div>
         </div>
       </div>
-      <div class="about-image flex justify-center">
+      <div class="about-image flex justify-center" style="animation-delay:0.4s">
         <img 
           src="/public/assets/pembo2.jpg" 
           alt="Signature coffee at Designers' Cafe" 
@@ -39,4 +39,62 @@
     </div>
   </div>
 </section>
-           
+<style>
+  @keyframes fade-in-left {
+    from { opacity: 0; transform: translateX(-40px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+  @keyframes fade-in-right {
+    from { opacity: 0; transform: translateX(40px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(32px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .animate-fade-in-left {
+    animation: fade-in-left 0.8s cubic-bezier(.4,0,.2,1) both;
+  }
+  .animate-fade-in-right {
+    animation: fade-in-right 0.8s cubic-bezier(.4,0,.2,1) both;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s cubic-bezier(.4,0,.2,1) both;
+  }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const aboutSection = document.getElementById('about');
+    const aboutContent = document.querySelector('.about-content');
+    const aboutImage = document.querySelector('.about-image');
+    const statItems = document.querySelectorAll('.stat-item');
+    let animated = false;
+
+    function animateAbout() {
+      if (animated) return;
+      aboutContent?.classList.add('animate-fade-in-left');
+      aboutImage?.classList.add('animate-fade-in-right');
+      statItems.forEach((item, i) => {
+        item.classList.add('animate-fade-in-up');
+        item.style.animationDelay = `${0.1 + i * 0.1}s`;
+      });
+      animated = true;
+    }
+
+    function handleIntersect(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateAbout();
+          observer.disconnect();
+        }
+      });
+    }
+
+    if (aboutSection) {
+      const observer = new window.IntersectionObserver(handleIntersect, {
+        threshold: 0.3
+      });
+      observer.observe(aboutSection);
+    }
+  });
+</script>

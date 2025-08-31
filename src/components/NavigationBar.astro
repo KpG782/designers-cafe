@@ -6,12 +6,11 @@
 
 <nav class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 shadow"
      id="navbar"
-     style="background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);">
+     style="background: var(--cream, #F8F4F0); backdrop-filter: blur(12px);">
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
-        <!-- Logo SVG or Image with white filter for visibility -->
-        <div class="w-10 h-10 flex items-center justify-center">
+        <div class="w-10 h-10 flex items-center justify-center animate-fade-in">
           <img 
             src="/public/assets/logo.png" 
             alt="Designers' Cafe Logo" 
@@ -19,24 +18,24 @@
             style="filter: none;" 
           />
         </div>
-        <span class="text-xl font-bold text-coffee-900">Designers' Cafe</span>
+        <span class="text-xl font-bold animate-slide-in-left" style="color: var(--coffee-900, #2E1C09);">Designers' Cafe</span>
       </div>
       
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#about" class="nav-link text-coffee-900 hover:text-pencil transition-colors">About</a>
-        <a href="#menu" class="nav-link text-coffee-900 hover:text-pencil transition-colors">Menu</a>
-        <a href="#gallery" class="nav-link text-coffee-900 hover:text-pencil transition-colors">Gallery</a>
-        <a href="#location" class="nav-link text-coffee-900 hover:text-pencil transition-colors">Location</a>
-        <a href="#contact" class="nav-link text-coffee-900 hover:text-pencil transition-colors">Contact</a>
+        <a href="#about" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.1s;">About</a>
+        <a href="#menu" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.2s;">Menu</a>
+        <a href="#gallery" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.3s;">Gallery</a>
+        <a href="#location" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.4s;">Location</a>
+        <a href="#contact" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.5s;">Contact</a>
       </div>
       
       <div class="flex items-center space-x-4">
-        <button class="cta-button bg-pencil text-white px-6 py-2 rounded-full hover:bg-coffee-600 transition-all duration-300 transform hover:scale-105">
+        <button class="cta-button px-6 py-2 rounded-full hover:bg-coffee-600 transition-all duration-300 transform hover:scale-105 animate-fade-in"
+          style="background: var(--pencil, #D4943A); color: #fff; animation-delay: 0.6s;">
           Order Now
         </button>
-        
         <!-- Mobile menu button -->
-        <button class="md:hidden" id="mobile-menu-btn">
+        <button class="md:hidden animate-fade-in" id="mobile-menu-btn" style="animation-delay: 0.7s;">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -45,14 +44,49 @@
     </div>
     
     <!-- Mobile menu -->
-    <div class="md:hidden hidden mt-4" id="mobile-menu">
-      <div class="flex flex-col space-y-4 pb-4">
-        <a href="#about" class="text-coffee-900 hover:text-pencil transition-colors">About</a>
-        <a href="#menu" class="text-coffee-900 hover:text-pencil transition-colors">Menu</a>
-        <a href="#gallery" class="text-coffee-900 hover:text-pencil transition-colors">Gallery</a>
-        <a href="#location" class="text-coffee-900 hover:text-pencil transition-colors">Location</a>
-        <a href="#contact" class="text-coffee-900 hover:text-pencil transition-colors">Contact</a>
+    <div class="md:hidden mt-4" id="mobile-menu" style="display:none;">
+      <div class="flex flex-col space-y-4 pb-4 bg-[var(--cream)] rounded-xl shadow-lg p-6">
+        <a href="#about" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">About</a>
+        <a href="#menu" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Menu</a>
+        <a href="#gallery" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Gallery</a>
+        <a href="#location" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Location</a>
+        <a href="#contact" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Contact</a>
       </div>
     </div>
   </div>
 </nav>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(-16px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-32px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+  .animate-fade-in {
+    animation: fade-in 0.7s cubic-bezier(.4,0,.2,1) both;
+  }
+  .animate-slide-in-left {
+    animation: slide-in-left 0.7s cubic-bezier(.4,0,.2,1) both;
+  }
+  .nav-link {
+    animation: fade-in 0.7s cubic-bezier(.4,0,.2,1) both;
+  }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+          mobileMenu.style.display = 'block';
+        } else {
+          mobileMenu.style.display = 'none';
+        }
+      });
+    }
+  });
+</script>

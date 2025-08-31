@@ -13,9 +13,13 @@
   --coffee-900: #2e1c09;
   --cream: #f8f4f0;
   --pencil: #d4943a;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
 }
 
 /* Example usage:
    background-color: var(--coffee-400);
    color: var(--cream);
+   font-family: var(--font-sans);
+   font-family: var(--font-serif);
 */
