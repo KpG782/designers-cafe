@@ -1,0 +1,188 @@
+---
+const categories = [
+  {
+    key: "coffee",
+    name: "Coffee",
+    color: "bg-[#2E1C09] text-white", // dark brown
+    image: "/public/assets/placeholder-coffee.jpg",
+    desc: "Classic espresso-based drinks and house blends for every coffee lover.",
+    items: [
+      { name: "Americano", price: 65, desc: "Smooth and bold espresso with hot water." },
+      { name: "Cappuccino", price: 80, desc: "Espresso, steamed milk, and foam." },
+      { name: "Dark Mocha", price: 105, desc: "Rich chocolate and espresso blend." },
+      { name: "Designers Choice", price: 105, desc: "Our signature blend for creative minds." },
+      { name: "Hazelnut Coffee", price: 105, desc: "Nutty, aromatic, and comforting." },
+      { name: "Irish Cream", price: 105, desc: "Espresso with a creamy Irish twist." },
+      { name: "Oat Latte 16oz ONLY", price: 115, desc: "Smooth oat milk with espresso." },
+      { name: "Salted Caramel Macchiato", price: 105, desc: "Sweet, salty, and creamy layers." },
+      { name: "Spanish Latte", price: 105, desc: "Espresso with sweetened milk." },
+      { name: "Wild Peppermint Mocha", price: 135, desc: "Peppermint and chocolate fusion." }
+    ]
+  },
+  {
+    key: "frappuccino",
+    name: "Frappés",
+    color: "bg-[#FFD580] text-coffee-900", // light gold
+    image: "/public/assets/placeholder-frappe.jpg",
+    desc: "Icy, blended drinks in creative flavors for a refreshing treat.",
+    items: [
+      { name: "Chocolate Frappe", price: 140, desc: "Blended chocolate and espresso." },
+      { name: "Dark Mocha Frappe", price: 140, desc: "Intense mocha, ice-blended." },
+      { name: "Espresso Frappe", price: 140, desc: "Classic espresso, cool and creamy." },
+      { name: "Irish Vanilla Frappe", price: 140, desc: "Vanilla and Irish cream fusion." },
+      { name: "Matcha Frappe", price: 150, desc: "Japanese matcha, smooth and cold." },
+      { name: "Salted Butterscotch Frappe", price: 140, desc: "Sweet, salty, and buttery." },
+      { name: "Strawberry Frappe", price: 140, desc: "Fresh strawberry blended delight." },
+      { name: "Wild Peppermint Mocha Frappe", price: 140, desc: "Peppermint, chocolate, and espresso." }
+    ]
+  },
+  {
+    key: "food",
+    name: "Food",
+    color: "bg-[#8B4B1A] text-white", // coffee brown
+    image: "/public/assets/placeholder-food.jpg",
+    desc: "Hearty meals, pasta, and snacks to pair with your favorite drink.",
+    items: [
+      { name: "Burger Steak", price: 110, desc: "Juicy patty with savory sauce." },
+      { name: "Chicken Fillet", price: 110, desc: "Crispy chicken, perfect for lunch." },
+      { name: "Fish Fry", price: 110, desc: "Golden fried fish fillet." },
+      { name: "Bacon Carbonara Ala Carte", price: 100, desc: "Creamy pasta with bacon." },
+      { name: "Creamy Tuna Pesto Ala Carte", price: 100, desc: "Tuna and pesto pasta." },
+      { name: "Banana Bread Slice", price: 35, desc: "Moist, homemade banana bread." },
+      { name: "Medium Croissant", price: 50, desc: "Flaky, buttery croissant." },
+      { name: "Pan Au Chocolat", price: 80, desc: "Chocolate-filled pastry." },
+      { name: "Cheese Sticks", price: 150, desc: "Crispy, cheesy snack." },
+      { name: "Nachos With Beef Salsa", price: 150, desc: "Loaded nachos with beef salsa." },
+      { name: "Potato Fries (Ketchup Dip)", price: 150, desc: "Classic fries with ketchup." }
+    ]
+  },
+  {
+    key: "noncoffee",
+    name: "Non-Coffee",
+    color: "bg-[#2563eb] text-white", // blue accent
+    image: "/public/assets/placeholder-noncoffee.jpg",
+    desc: "Delicious drinks for non-coffee lovers and kids.",
+    items: [
+      { name: "Hot Choco", price: 85, desc: "Rich and creamy hot chocolate." },
+      { name: "Iced Choco With Whip Cream 16oz Only", price: 115, desc: "Iced chocolate topped with whip." },
+      { name: "Pink Pilates", price: 115, desc: "Fruity, pink, and refreshing." },
+      { name: "Rebellious Drink", price: 115, desc: "Unique, creative, and fun." },
+      { name: "Strawberry Latte With Whip Cream 16oz Only", price: 115, desc: "Strawberry and milk, whipped cream." },
+      { name: "Unli Soda", price: 300, desc: "Unlimited soda for your group." }
+    ]
+  },
+  {
+    key: "add-ons",
+    name: "Add Ons",
+    color: "bg-[#F8F4F0] text-coffee-900 border border-coffee-200", // light cream
+    image: "/public/assets/placeholder-addons.jpg",
+    desc: "Customize your order with extra shots, dips, and more.",
+    items: [
+      { name: "Espresso Shot", price: 20, desc: "Extra caffeine boost." },
+      { name: "Extra Dip", price: 10, desc: "Add more flavor to your meal." },
+      { name: "Extra Rice", price: 15, desc: "For a more filling meal." },
+      { name: "Extra Whip", price: 20, desc: "More whipped cream, please!" },
+      { name: "Shotts", price: 20, desc: "Extra flavor shots." },
+      { name: "Soy Or Oat Milk", price: 30, desc: "Dairy-free milk options." },
+      { name: "Takeouts", price: 10, desc: "For your takeout needs." },
+      { name: "Upsize Coffee 22oz", price: 15, desc: "Bigger coffee, more energy." },
+      { name: "Upsize SodaMilky 22oz", price: 15, desc: "Bigger soda milky." }
+    ]
+  },
+  {
+    key: "accessories",
+    name: "Accessories",
+    color: "bg-[#D4943A] text-coffee-900", // pencil gold
+    image: "/public/assets/placeholder-accessories.jpg",
+    desc: "Fun and creative accessories for your drinks and style.",
+    items: [
+      { name: "Bracelet", price: 60, desc: "Handmade, creative bracelet." },
+      { name: "CP Charmer", price: 65, desc: "Cute phone charm." }
+    ]
+  }
+];
+
+let selectedCategory = categories[0].key;
+---
+
+<section class="py-20 bg-cream relative overflow-hidden" id="menu">
+  <div class="absolute inset-0 opacity-5 pointer-events-none">
+    <div class="grid grid-cols-8 gap-4 h-full">
+      <div class="bg-pencil"></div>
+      <div class="bg-coffee-400"></div>
+      <div class="bg-pencil"></div>
+      <div class="bg-coffee-400"></div>
+      <div class="bg-pencil"></div>
+      <div class="bg-coffee-400"></div>
+      <div class="bg-pencil"></div>
+      <div class="bg-coffee-400"></div>
+    </div>
+  </div>
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-coffee-900 mb-6">
+        Our <span class="text-gradient">Signature</span> Creations
+      </h2>
+      <p class="text-lg text-coffee-600 max-w-2xl mx-auto">
+        Each drink is crafted with the precision of a designer and the passion of an artist. 
+        Explore our curated collection of coffee perfection.
+      </p>
+    </div>
+    <!-- Menu Categories -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12" id="menu-categories">
+      {categories.map(cat => (
+        <button
+          class={`category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === cat.key ? cat.color + " ring-2 ring-pencil" : "glass-morphism text-coffee-700 hover:bg-pencil hover:text-white"}`}
+          data-category={cat.key}
+          aria-pressed={selectedCategory === cat.key}
+          onClick={() => { selectedCategory = cat.key; }}
+          type="button"
+        >
+          {cat.name}
+        </button>
+      ))}
+    </div>
+    <!-- Category Description -->
+    <div class="text-center mb-8">
+      <p class="text-base md:text-lg text-coffee-700 font-medium transition-all duration-300 min-h-[1.5em]">
+        {categories.find(cat => cat.key === selectedCategory)?.desc}
+      </p>
+    </div>
+    <!-- Menu Items Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-items">
+      {categories
+        .filter(cat => cat.key === selectedCategory)
+        .map(cat =>
+          cat.items.map(item => (
+            <div class={`menu-item ${cat.key} glass-morphism rounded-2xl p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-coffee-900">{item.name}</h3>
+                <span class="text-2xl font-bold text-pencil">₱{item.price}</span>
+              </div>
+              <div class="mb-4 flex justify-center">
+                <img src={cat.image} alt={cat.name + " placeholder"} class="w-24 h-24 object-cover rounded-xl border-2 border-coffee-100" />
+              </div>
+              <p class="text-coffee-700 text-sm mb-4">{item.desc}</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <div class="flex text-yellow-500 text-sm">
+                    <span>★★★★★</span>
+                  </div>
+                  <span class="text-coffee-500 text-sm ml-2">(sample reviews)</span>
+                </div>
+                <button class="add-to-cart bg-pencil text-white px-4 py-2 rounded-full hover:bg-coffee-600 transition-colors">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          ))
+        )
+      }
+    </div>
+    <div class="text-center mt-12">
+      <button class="view-full-menu bg-transparent border-2 border-pencil text-pencil px-8 py-4 rounded-full font-semibold hover:bg-pencil hover:text-white transition-all duration-300 transform hover:scale-105">
+        View Full Menu
+      </button>
+    </div>
+  </div>
+</section>

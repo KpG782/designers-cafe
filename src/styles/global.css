@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+:root {
+  --coffee-50: #fdf7f0;
+  --coffee-100: #f7e6d3;
+  --coffee-200: #efcca5;
+  --coffee-300: #e5a865;
+  --coffee-400: #d4943a;
+  --coffee-500: #b8732b;
+  --coffee-600: #8b4b1a;
+  --coffee-700: #6b3614;
+  --coffee-800: #4a2a0f;
+  --coffee-900: #2e1c09;
+  --cream: #f8f4f0;
+  --pencil: #d4943a;
+}
+
+/* Example usage:
+   background-color: var(--coffee-400);
+   color: var(--cream);
+*/

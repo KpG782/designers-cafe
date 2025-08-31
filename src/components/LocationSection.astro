@@ -1,0 +1,149 @@
+---
+
+const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d61941.04999152929!2d121.0124593!3d14.6293736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3m12!1m3!1d61941.04999152929!2d121.0124593!3d14.6293736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m4!3m3!1m1!4e1!1m0!3e0!5e0!3m2!1sen!2sph!4v1718000000000!5m2!1sen!2sph";
+---
+
+<section class="py-20 bg-coffee-900 text-white relative overflow-hidden" id="location">
+  <div class="absolute inset-0 opacity-10">
+    <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100" height="100" fill="url(#grid)"/>
+    </svg>
+  </div>
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="location-content">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+          Visit Our <span class="text-pencil">Creative Hub</span>
+        </h2>
+        <p class="text-xl text-coffee-100 mb-8 leading-relaxed">
+          Located in the heart of Taguig, we're more than just a destination – 
+          we're a creative community waiting to welcome you.
+        </p>
+        <!-- Address -->
+        <div class="flex items-start mb-6">
+          <div class="w-8 h-8 bg-pencil rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-coffee-100 mb-2">Address</h3>
+            <p class="text-coffee-200">65 Sampaguita Street Corner Umbel<br />Brgy. Pembo, Taguig City</p>
+          </div>
+        </div>
+        <!-- Phone -->
+        <div class="flex items-start mb-6">
+          <div class="w-8 h-8 bg-pencil rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-coffee-100 mb-2">Call Us</h3>
+            <p class="text-coffee-200">0961 523 5176</p>
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="flex items-start mb-8">
+          <div class="w-8 h-8 bg-pencil rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-coffee-100 mb-2">Email</h3>
+            <p class="text-coffee-200">designerscafeshop@gmail.com</p>
+          </div>
+        </div>
+        <!-- Delivery info -->
+        <div class="glass-morphism p-6 rounded-xl bg-white bg-opacity-10">
+          <h3 class="text-lg font-semibold text-coffee-100 mb-4">Delivery Information</h3>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span class="text-pencil font-medium">Radius:</span>
+              <p class="text-coffee-200">2 Kilometers</p>
+            </div>
+            <div>
+              <span class="text-pencil font-medium">Fee:</span>
+              <p class="text-coffee-200">₱50</p>
+            </div>
+            <div>
+              <span class="text-pencil font-medium">Time:</span>
+              <p class="text-coffee-200">30 minutes max</p>
+            </div>
+            <div>
+              <span class="text-pencil font-medium">Pickup:</span>
+              <p class="text-coffee-200">5 minutes prep</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Hours and Map -->
+      <div class="hours-content flex flex-col gap-8">
+        <div class="glass-morphism p-8 rounded-2xl bg-white bg-opacity-10">
+          <h3 class="text-2xl font-bold text-coffee-100 mb-6 text-center">Opening Hours</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center py-3 border-b border-coffee-700 border-opacity-30">
+              <span class="font-medium text-coffee-200">Sunday</span>
+              <span class="text-pencil font-semibold">3:00 PM - 11:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-coffee-700 border-opacity-30">
+              <span class="font-medium text-coffee-200">Monday</span>
+              <span class="text-pencil font-semibold">3:00 PM - 11:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-coffee-700 border-opacity-30">
+              <span class="font-medium text-coffee-200">Tuesday</span>
+              <span class="text-pencil font-semibold">3:00 PM - 11:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-coffee-700 border-opacity-30">
+              <span class="font-medium text-coffee-200">Wednesday</span>
+              <span class="text-pencil font-semibold">3:00 PM - 11:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-coffee-700 border-opacity-30">
+              <span class="font-medium text-coffee-200">Thursday</span>
+              <span class="text-pencil font-semibold">3:00 PM - 11:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center py-3">
+              <span class="font-medium text-coffee-200">Friday</span>
+              <span class="text-red-400 font-semibold">Closed</span>
+            </div>
+          </div>
+          <div class="mt-8 text-center">
+            <div class="inline-flex items-center bg-green-500 bg-opacity-20 text-green-400 px-4 py-2 rounded-full">
+              <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+              <span class="font-medium">Currently Open</span>
+            </div>
+          </div>
+        </div>
+        <!-- Embedded Google Map (updated) -->
+        <div class="mt-8 glass-morphism p-6 rounded-xl bg-white bg-opacity-10">
+          <h4 class="text-lg font-semibold text-coffee-100 mb-4">Find Us</h4>
+          <div class="bg-coffee-800 rounded-lg p-2 md:p-4 text-center">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.984464826342!2d121.05726111101508!3d14.542881085878033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9c9d8589a75%3A0xfbec94a98dc36ea9!2sDesigners&#39;%20Cafe!5e0!3m2!1sen!2sph!4v1756671883218!5m2!1sen!2sph"
+              width="100%"
+              height="260"
+              style="border:0; border-radius: 0.75rem;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Designers' Cafe Location Map"
+            ></iframe>
+            <a href="https://www.google.com/maps/dir/14.7161088,121.126912/14.5424662,121.05978/@14.6293736,121.0124593,12z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?authuser=2&entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              class="mt-4 inline-block text-pencil hover:text-coffee-100 font-medium"
+            >
+              Get Directions →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
