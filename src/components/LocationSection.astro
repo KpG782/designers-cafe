@@ -2,69 +2,98 @@
 const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.984464826342!2d121.05726111101508!3d14.542881085878033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9c9d8589a75%3A0xfbec94a98dc36ea9!2sDesigners&#39;%20Cafe!5e0!3m2!1sen!2sph!4v1756671883218!5m2!1sen!2sph";
 ---
 
-<section class="py-16 md:py-20" id="location" style="background: var(--coffee-900); color: var(--cream);">
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="text-center mb-10 md:mb-16">
+<section class="py-20 md:py-24" id="location" style="background: var(--coffee-900); color: var(--cream);">
+  <div class="container mx-auto px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12 md:mb-20">
       <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4" style="color: var(--cream);">
-        Visit Our <span style="color: var(--pencil);">Creative Hub</span>
+        Visit Our <span style="color: var(--pencil);">Cafe</span>
       </h2>
       <p class="text-base md:text-lg max-w-xl mx-auto mb-6" style="color: var(--coffee-100);">
         Located in Pembo, Taguig. Enjoy specialty drinks, creative workspace, and friendly staff.
       </p>
     </div>
-    <div class="flex flex-col md:flex-row gap-8 justify-center items-start mb-10">
-      <div class="location-content bg-[var(--coffee-800)] rounded-xl p-6 shadow-lg w-full md:w-1/2" style="opacity:0;">
-        <div class="mb-4 flex items-center gap-3">
-          <span class="inline-block w-8 h-8 bg-pencil rounded-full flex items-center justify-center">
-            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-            </svg>
-          </span>
-          <span class="font-semibold text-lg" style="color: var(--pencil);">Address</span>
-        </div>
-        <p class="text-base mb-4" style="color: var(--cream);">
-          65 Sampaguita St. Corner Umbel<br />Brgy. Pembo, Taguig City
-        </p>
-        <div class="mb-4 flex items-center gap-3">
-          <span class="inline-block w-8 h-8 bg-pencil rounded-full flex items-center justify-center">
-            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-            </svg>
-          </span>
-          <span class="font-semibold text-lg" style="color: var(--pencil);">Call Us</span>
-        </div>
-        <p class="text-base mb-4" style="color: var(--cream);">0961 523 5176</p>
-        <div class="mb-4 flex items-center gap-3">
-          <span class="inline-block w-8 h-8 bg-pencil rounded-full flex items-center justify-center">
-            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-            </svg>
-          </span>
-          <span class="font-semibold text-lg" style="color: var(--pencil);">Email</span>
-        </div>
-        <p class="text-base mb-4" style="color: var(--cream);">designerscafeshop@gmail.com</p>
-        <div class="grid grid-cols-2 gap-4 text-sm mt-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 justify-center items-start">
+      <!-- Contact Information Card -->
+      <div class="location-content bg-[var(--coffee-800)] rounded-xl p-8 shadow-2xl w-full border border-coffee-600" style="opacity:1;">
+        <!-- Contact Information -->
+        <div class="contact-info space-y-6" style="opacity: 1;">
           <div>
-            <span style="color: var(--pencil); font-weight:600;">Radius:</span>
-            <span style="color: var(--cream);">2km</span>
+            <h3 class="text-2xl font-serif font-bold mb-8 text-center" style="color: var(--pencil);">Contact Information</h3>
+          
+            <!-- Phone -->
+            <div class="flex items-center space-x-4 mb-6 p-5 rounded-xl hover:bg-coffee-700 transition-colors" style="background: var(--coffee-700);">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg" style="background: var(--pencil);">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+            </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-2" style="color: var(--cream);">Call Us</h4>
+                <p style="color: var(--coffee-200);">
+                  <a href="tel:+639615235176" class="hover:text-[var(--pencil)] transition-colors text-lg">
+                    +63 961 523 5176
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <span style="color: var(--pencil); font-weight:600;">Fee:</span>
-            <span style="color: var(--cream);">₱50</span>
+
+            <!-- Email -->
+            <div class="flex items-center space-x-4 mb-6 p-5 rounded-xl hover:bg-coffee-700 transition-colors" style="background: var(--coffee-700);">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--pencil);">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-lg mb-2" style="color: var(--coffee-900);">Email</h4>
+              <p style="color: var(--coffee-700);">
+                <a href="mailto:designerscafeshop@gmail.com" class="hover:text-[var(--pencil)] transition-colors">
+                  designerscafeshop@gmail.com
+                </a>
+              </p>
+            </div>
           </div>
-          <div>
-            <span style="color: var(--pencil); font-weight:600;">Time:</span>
-            <span style="color: var(--cream);">30min max</span>
+
+          <!-- Hours -->
+          <div class="flex items-start space-x-4 mb-6 p-4 rounded-xl" style="background: var(--coffee-50);">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--pencil);">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-lg mb-2" style="color: var(--coffee-900);">Opening Hours</h4>
+              <div style="color: var(--coffee-700);">
+                <p>Sunday - Thursday: <span style="color: var(--pencil); font-weight: 600;">3:00 PM - 11:00 PM</span></p>
+                <p>Friday: <span class="text-red-500 font-weight: 600;">Closed</span></p>
+                <p>Saturday: <span style="color: var(--pencil); font-weight: 600;">3:00 PM - 11:00 PM</span></p>
+              </div>
+            </div>
           </div>
-          <div>
-            <span style="color: var(--pencil); font-weight:600;">Pickup:</span>
-            <span style="color: var(--cream);">5min prep</span>
+        </div>
+
+        <!-- Social Media -->
+        <div class="text-center pt-8 border-t" style="border-color: var(--coffee-200);">
+          <h4 class="font-semibold text-lg mb-4" style="color: var(--coffee-900);">Follow Us</h4>
+          <div class="flex justify-center space-x-4">
+            <a href="#" class="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2" style="background: var(--pencil);" aria-label="Follow us on Facebook">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2" style="background: var(--pencil);" aria-label="Follow us on Instagram">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.251 14.794 3.76 13.643 3.76 12.346s.491-2.448 1.366-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.875.875 1.297 2.026 1.297 3.323s-.422 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.876c-.245 0-.49-.098-.666-.274-.177-.177-.274-.421-.274-.667 0-.245.098-.49.274-.666.177-.177.421-.274.666-.274s.49.098.667.274c.176.177.274.421.274.666 0 .246-.098.49-.274.667-.177.176-.422.274-.667.274z"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
-      <div class="hours-content bg-[var(--coffee-800)] rounded-xl p-6 shadow-lg w-full md:w-1/2 flex flex-col items-center" style="opacity:0;">
-        <h3 class="text-lg font-semibold mb-4" style="color: var(--pencil);">Opening Hours</h3>
+      <!-- Hours and Map Card -->
+      <div class="hours-content bg-[var(--coffee-800)] rounded-xl p-8 shadow-2xl w-full flex flex-col items-center border border-coffee-600" style="opacity:1;">
+        <h3 class="text-2xl font-serif font-bold mb-6 text-center" style="color: var(--pencil);">Hours & Location</h3>
         <ul class="text-base mb-4" style="color: var(--cream);">
           <li>Sun-Thu: <span style="color: var(--pencil); font-weight:600;">3:00 PM - 11:00 PM</span></li>
           <li>Friday: <span style="color: #f87171; font-weight:600;">Closed</span></li>
@@ -75,18 +104,19 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.
             Currently Open
           </span>
         </div>
-        <div class="w-full mt-8 rounded-xl overflow-hidden shadow-lg bg-[var(--coffee-900)] p-2">
-          <h4 class="text-base font-semibold mb-2" style="color: var(--pencil);">Find Us on the Map</h4>
-          <iframe
-            src={mapEmbedUrl}
-            width="100%"
-            height="180"
-            style="border:0; border-radius: 0.75rem;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Designers' Cafe Location Map"
-          ></iframe>
+        <div class="w-full mt-8 rounded-xl overflow-hidden shadow-lg bg-[var(--coffee-900)] p-3">
+          <h4 class="text-base font-semibold mb-3 text-center" style="color: var(--pencil);">Find Us on the Map</h4>
+          <div class="relative w-full" style="padding-bottom: 50%; height: 0;">
+            <iframe
+              src={mapEmbedUrl}
+              class="absolute top-0 left-0 w-full h-full"
+              style="border:0; border-radius: 0.75rem;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Designers' Cafe Location Map"
+            ></iframe>
+          </div>
           <a href="https://www.google.com/maps/dir/14.7161088,121.126912/14.5424662,121.05978/@14.6293736,121.0124593,12z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?authuser=2&entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             class="mt-2 inline-block text-[var(--pencil)] hover:text-[var(--cream)] font-medium"
@@ -115,35 +145,6 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.
   }
 </style>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const locationContent = document.querySelector('.location-content');
-    const hoursContent = document.querySelector('.hours-content');
-    let animated = false;
-
-    function animateLocation() {
-      if (animated) return;
-      locationContent?.classList.add('animate-fade-in-left');
-      hoursContent?.classList.add('animate-fade-in-right');
-      locationContent.style.opacity = 1;
-      hoursContent.style.opacity = 1;
-      animated = true;
-    }
-
-    function handleIntersect(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateLocation();
-          observer.disconnect();
-        }
-      });
-    }
-
-    const locationSection = document.getElementById('location');
-    if (locationSection) {
-      const observer = new window.IntersectionObserver(handleIntersect, {
-        threshold: 0.2
-      });
-      observer.observe(locationSection);
-    }
-  });
+  // GSAP animations will be handled by main.js
+  // This ensures consistency and better performance
 </script>

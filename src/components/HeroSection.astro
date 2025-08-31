@@ -1,5 +1,5 @@
 ---
-const bgImage = "/public/assets/midnightbg.jpg"; // adjust path if needed
+const bgImage = "/assets/midnightbg.jpg"; // adjust path if needed
 ---
 
 <section
@@ -39,11 +39,13 @@ const bgImage = "/public/assets/midnightbg.jpg"; // adjust path if needed
       <!-- CTA Buttons with stagger animation -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" id="hero-buttons" style="animation-delay: 0.3s;">
         <button class="cta-primary px-8 py-4 rounded-full font-semibold hover:bg-[var(--coffee-600)] transition-all duration-300 transform hover:scale-105 animate-pulse-glow focus:outline-none focus:ring-4 focus:ring-[var(--pencil)] focus:ring-opacity-50"
-          style="background: var(--pencil, #D4943A); color: var(--cream, #F8F4F0); font-family: var(--font-sans);">
+          style="background: var(--pencil, #D4943A); color: var(--cream, #F8F4F0); font-family: var(--font-sans);"
+          aria-label="Explore our menu and specialty drinks">
           Explore Menu
         </button>
         <button class="cta-secondary border-2 px-8 py-4 rounded-full font-semibold hover:bg-[var(--pencil)] hover:text-white transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[var(--pencil)] focus:ring-opacity-50"
-          style="border-color: var(--pencil, #D4943A); color: var(--pencil, #D4943A); font-family: var(--font-sans);">
+          style="border-color: var(--pencil, #D4943A); color: var(--pencil, #D4943A); font-family: var(--font-sans);"
+          aria-label="Visit Designers' Cafe location in Taguig">
           Visit Us Today
         </button>
       </div>

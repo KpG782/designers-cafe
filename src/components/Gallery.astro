@@ -2,74 +2,74 @@
 
 const galleryImages = [
   {
-    src: "/public/assets/gal1.jpg",
+    src: "/assets/gal1.jpg",
     title: "Cozy Interior",
     desc: "Perfect for focused work",
     tag: "Interior Design"
   },
   {
-    src: "/public/assets/gal2.jpg",
+    src: "/assets/gal2.jpg",
     title: "Signature Drinks",
     desc: "Crafted with passion",
     tag: "Coffee Artistry"
   },
   {
-    src: "/public/assets/gal3.jpg",
+    src: "/assets/gal3.jpg",
     title: "Community",
     desc: "Where creatives connect",
     tag: "Creative Community"
   },
   {
-    src: "/public/assets/gal4.jpg",
+    src: "/assets/gal4.jpg",
     title: "Design Workspace",
     desc: "Where ideas come to life",
     tag: "Productive Environment"
   },
   {
-    src: "/public/assets/gal5.jpg",
+    src: "/assets/gal5.jpg",
     title: "Events",
     desc: "Design workshops & meetups",
     tag: "Creative Events"
   },
   {
-    src: "/public/assets/gal6.jpg",
+    src: "/assets/gal6.jpg",
     title: "Pastries & Snacks",
     desc: "Freshly baked daily",
     tag: "Cafe Treats"
   },
   {
-    src: "/public/assets/gal7.jpg",
+    src: "/assets/gal7.jpg",
     title: "Outdoor Vibes",
     desc: "Relax and enjoy your brew",
     tag: "Al Fresco"
   },
   // Extra placeholders to fill the grid and avoid blanks
   {
-    src: "/public/assets/gal1.jpg",
+    src: "/assets/gal1.jpg",
     title: "Cafe Moments",
     desc: "Enjoy every sip and scene.",
     tag: "Cafe Life"
   },
   {
-    src: "/public/assets/gal2.jpg",
+    src: "/assets/gal2.jpg",
     title: "Barista at Work",
     desc: "Crafting your perfect cup.",
     tag: "Barista"
   },
   {
-    src: "/public/assets/gal3.jpg",
+    src: "/assets/gal3.jpg",
     title: "Artisan Coffee",
     desc: "Handcrafted with love.",
     tag: "Artisan"
   },
   {
-    src: "/public/assets/gal4.jpg",
+    src: "/assets/gal4.jpg",
     title: "Chill Spot",
     desc: "Unwind and relax.",
     tag: "Chill"
   },
   {
-    src: "/public/assets/gal5.jpg",
+    src: "/assets/gal5.jpg",
     title: "Creative Corners",
     desc: "Inspiring every visit.",
     tag: "Inspiration"
@@ -89,76 +89,76 @@ const galleryImages = [
       </p>
     </div>
     <!-- Mosaic Gallery Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[240px] lg:auto-rows-[280px]" id="gallery-grid">
-      <div class="relative col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
-        <img src={galleryImages[0].src} alt={galleryImages[0].title} class="w-full h-full object-cover" loading="lazy" />
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[240px] lg:auto-rows-[280px]" id="gallery-grid" role="img" aria-label="Photo gallery showing Designers' Cafe atmosphere and offerings">
+      <div class="relative col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
+        <img src={galleryImages[0].src} alt={`${galleryImages[0].title}: ${galleryImages[0].desc}`} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
           <h3 class="text-white text-xl font-bold">{galleryImages[0].title}</h3>
           <p class="text-white text-sm">{galleryImages[0].desc}</p>
         </div>
       </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
-        <img src={galleryImages[1].src} alt={galleryImages[1].title} class="w-full h-full object-cover" loading="lazy" />
+      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
+        <img src={galleryImages[1].src} alt={`${galleryImages[1].title}: ${galleryImages[1].desc}`} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[1].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
-        <img src={galleryImages[2].src} alt={galleryImages[2].title} class="w-full h-full object-cover" loading="lazy" />
+      <div class="relative col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
+        <img src={galleryImages[2].src} alt={`${galleryImages[2].title}: ${galleryImages[2].desc}`} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[2].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
-        <img src={galleryImages[3].src} alt={galleryImages[3].title} class="w-full h-full object-cover" loading="lazy" />
+      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
+        <img src={galleryImages[3].src} alt={`${galleryImages[3].title}: ${galleryImages[3].desc}`} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[3].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
-        <img src={galleryImages[4].src} alt={galleryImages[4].title} class="w-full h-full object-cover" loading="lazy" />
+      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
+        <img src={galleryImages[4].src} alt={`${galleryImages[4].title}: ${galleryImages[4].desc}`} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[4].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
-        <img src={galleryImages[5].src} alt={galleryImages[5].title} class="w-full h-full object-cover" loading="lazy" />
+      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
+        <img src={galleryImages[5].src} alt={`${galleryImages[5].title}: ${galleryImages[5].desc}`} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[5].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
-        <img src={galleryImages[6].src} alt={galleryImages[6].title} class="w-full h-full object-cover" loading="lazy" />
+      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
+        <img src={galleryImages[6].src} alt={`${galleryImages[6].title}: ${galleryImages[6].desc}`} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[6].title}</h3>
         </div>
       </div>
       <!-- Extra placeholders for balance -->
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
+      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
         <img src={galleryImages[7].src} alt={galleryImages[7].title} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[7].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
+      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
         <img src={galleryImages[8].src} alt={galleryImages[8].title} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[8].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
+      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
         <img src={galleryImages[9].src} alt={galleryImages[9].title} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[9].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
+      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
         <img src={galleryImages[10].src} alt={galleryImages[10].title} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[10].title}</h3>
         </div>
       </div>
-      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:0;">
+      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
         <img src={galleryImages[11].src} alt={galleryImages[11].title} class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
           <h3 class="text-white text-base font-semibold">{galleryImages[11].title}</h3>
@@ -177,35 +177,6 @@ const galleryImages = [
   }
 </style>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const galleryGrid = document.getElementById('gallery-grid');
-    const galleryItems = galleryGrid?.querySelectorAll('.gallery-item');
-    let animated = false;
-
-    function animateGallery() {
-      if (animated || !galleryItems) return;
-      galleryItems.forEach((item, i) => {
-        setTimeout(() => {
-          item.classList.add('animate-fade-in-up');
-        }, i * 120);
-      });
-      animated = true;
-    }
-
-    function handleIntersect(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateGallery();
-          observer.disconnect();
-        }
-      });
-    }
-
-    if (galleryGrid) {
-      const observer = new window.IntersectionObserver(handleIntersect, {
-        threshold: 0.2
-      });
-      observer.observe(galleryGrid);
-    }
-  });
+  // GSAP animations will be handled by main.js
+  // This ensures consistency and better performance
 </script>

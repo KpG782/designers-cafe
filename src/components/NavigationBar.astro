@@ -6,13 +6,15 @@
 
 <nav class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 shadow"
      id="navbar"
+     role="navigation"
+     aria-label="Main Navigation"
      style="background: var(--cream, #F8F4F0); backdrop-filter: blur(12px);">
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
         <div class="w-10 h-10 flex items-center justify-center animate-fade-in">
           <img 
-            src="/public/assets/logo.png" 
+            src="/assets/logo.png" 
             alt="Designers' Cafe Logo" 
             class="w-full h-full object-contain"
             style="filter: none;" 
@@ -22,21 +24,28 @@
       </div>
       
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#about" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.1s;">About</a>
-        <a href="#menu" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.2s;">Menu</a>
-        <a href="#gallery" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.3s;">Gallery</a>
-        <a href="#location" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.4s;">Location</a>
-        <a href="#contact" class="nav-link hover:text-pencil transition-colors animate-fade-in" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.5s;">Contact</a>
+        <a href="#about" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.1s;" aria-label="Navigate to About section">About</a>
+        <a href="#menu" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.2s;" aria-label="Navigate to Menu section">Menu</a>
+        <a href="#gallery" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.3s;" aria-label="Navigate to Gallery section">Gallery</a>
+        <a href="#baristas" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.4s;" aria-label="Navigate to Baristas section">Baristas</a>
+        <a href="#location" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.5s;" aria-label="Navigate to Location section">Location</a>
+        <a href="#contact" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.6s;" aria-label="Navigate to Contact section">Contact</a>
       </div>
       
       <div class="flex items-center space-x-4">
-        <button class="cta-button px-6 py-2 rounded-full hover:bg-coffee-600 transition-all duration-300 transform hover:scale-105 animate-fade-in"
-          style="background: var(--pencil, #D4943A); color: #fff; animation-delay: 0.6s;">
+        <button class="cta-button px-6 py-2 rounded-full hover:bg-coffee-600 transition-all duration-300 transform hover:scale-105 animate-fade-in focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+          style="background: var(--pencil, #D4943A); color: #fff; animation-delay: 0.6s;"
+          aria-label="Place an order">
           Order Now
         </button>
         <!-- Mobile menu button -->
-        <button class="md:hidden animate-fade-in" id="mobile-menu-btn" style="animation-delay: 0.7s;">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button class="md:hidden animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" 
+                id="mobile-menu-btn" 
+                style="animation-delay: 0.7s;"
+                aria-label="Toggle mobile menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
@@ -44,13 +53,14 @@
     </div>
     
     <!-- Mobile menu -->
-    <div class="md:hidden mt-4" id="mobile-menu" style="display:none;">
+    <div class="md:hidden mt-4" id="mobile-menu" style="display:none;" role="menu" aria-labelledby="mobile-menu-btn">
       <div class="flex flex-col space-y-4 pb-4 bg-[var(--cream)] rounded-xl shadow-lg p-6">
-        <a href="#about" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">About</a>
-        <a href="#menu" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Menu</a>
-        <a href="#gallery" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Gallery</a>
-        <a href="#location" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Location</a>
-        <a href="#contact" class="hover:text-pencil transition-colors" style="color: var(--coffee-900, #2E1C09);">Contact</a>
+        <a href="#about" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to About section">About</a>
+        <a href="#menu" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Menu section">Menu</a>
+        <a href="#gallery" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Gallery section">Gallery</a>
+        <a href="#baristas" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Baristas section">Baristas</a>
+        <a href="#location" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Location section">Location</a>
+        <a href="#contact" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Contact section">Contact</a>
       </div>
     </div>
   </div>
@@ -79,12 +89,45 @@
   window.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    let isMenuOpen = false;
+
+    function toggleMobileMenu() {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.style.display = 'block';
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        // Focus the first menu item for accessibility
+        const firstMenuItem = mobileMenu.querySelector('a');
+        if (firstMenuItem) firstMenuItem.focus();
+      } else {
+        mobileMenu.style.display = 'none';
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
     if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
-          mobileMenu.style.display = 'block';
-        } else {
-          mobileMenu.style.display = 'none';
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      
+      // Keyboard support
+      mobileMenuBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleMobileMenu();
+        }
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          toggleMobileMenu();
+        }
+      });
+
+      // Close menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) {
+          toggleMobileMenu();
+          mobileMenuBtn.focus();
         }
       });
     }

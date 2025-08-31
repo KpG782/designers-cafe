@@ -1,17 +1,45 @@
 // Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+if (typeof gsap !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+} else {
+  console.warn('GSAP not loaded');
+}
 
-// Loading animation
+// Loading animation with fallback
+function hideLoader() {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    if (typeof gsap !== 'undefined' && gsap.to) {
+      gsap.to("#loader", {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          loader.style.display = "none";
+          initAnimations();
+        },
+      });
+    } else {
+      // Fallback if GSAP isn't loaded
+      loader.style.opacity = "0";
+      setTimeout(() => {
+        loader.style.display = "none";
+        initAnimations();
+      }, 500);
+    }
+  } else {
+    // If no loader, just init animations
+    initAnimations();
+  }
+}
+
+// Multiple triggers to ensure loading screen disappears
 window.addEventListener("load", () => {
-  gsap.to("#loader", {
-    opacity: 0,
-    duration: 0.5,
-    delay: 1,
-    onComplete: () => {
-      document.getElementById("loader").style.display = "none";
-      initAnimations();
-    },
-  });
+  setTimeout(hideLoader, 800); // Small delay for better UX
+});
+
+// Fallback in case window.load doesn't fire
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(hideLoader, 2000); // Longer fallback
 });
 
 function initAnimations() {
@@ -251,6 +279,38 @@ function initAnimations() {
       },
     }
   );
+
+  // Contact form and info animations
+  gsap.fromTo(
+    ".contact-form",
+    { opacity: 0, x: -30 },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top 80%",
+      },
+    }
+  );
+
+  gsap.fromTo(
+    ".contact-info",
+    { opacity: 0, x: 30 },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      delay: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top 80%",
+      },
+    }
+  );
 }
 
 // Mobile menu toggle
@@ -382,22 +442,104 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Animate footer logo on scroll into view
-  const footerLogo = document.querySelector("footer svg");
-  if (footerLogo) {
-    gsap.fromTo(
-      footerLogo,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: footerLogo,
-          start: "top 90%",
-        },
-      }
-    );
-  }
+  // Footer animations
+  gsap.fromTo(
+    ".footer-animate",
+    { opacity: 0, y: 30 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      stagger: 0.12,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "footer",
+        start: "top 85%",
+      },
+    }
+  );
+
+  // Barista section animations
+  gsap.fromTo(
+    "#baristas h2",
+    { opacity: 0, y: 30 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#baristas",
+        start: "top 80%",
+      },
+    }
+  );
+
+  gsap.fromTo(
+    "#baristas p",
+    { opacity: 0, y: 20 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      delay: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#baristas",
+        start: "top 80%",
+      },
+    }
+  );
+
+  gsap.fromTo(
+    ".barista-card",
+    { opacity: 0, y: 50, scale: 0.8 },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: "#baristas",
+        start: "top 80%",
+      },
+    }
+  );
+
+  // Gallery grid animations
+  gsap.fromTo(
+    ".gallery-item",
+    { opacity: 0, scale: 0.8 },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: "#gallery-grid",
+        start: "top 80%",
+      },
+    }
+  );
+
+  // Menu items enhanced animations
+  gsap.fromTo(
+    ".menu-item",
+    { opacity: 0, y: 30, scale: 0.9 },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#menu-items",
+        start: "top 80%",
+      },
+    }
+  );
 });

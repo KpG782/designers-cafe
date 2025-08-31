@@ -30,7 +30,7 @@
       </div>
       <div class="about-image flex justify-center" style="animation-delay:0.4s">
         <img 
-          src="/public/assets/pembo2.jpg" 
+          src="/assets/pembo2.jpg" 
           alt="Signature coffee at Designers' Cafe" 
           class="rounded-2xl shadow-lg object-cover w-full max-w-xs h-[480px] md:h-[600px]" 
           style="background: #f8f4f0;"
@@ -63,38 +63,6 @@
   }
 </style>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const aboutSection = document.getElementById('about');
-    const aboutContent = document.querySelector('.about-content');
-    const aboutImage = document.querySelector('.about-image');
-    const statItems = document.querySelectorAll('.stat-item');
-    let animated = false;
-
-    function animateAbout() {
-      if (animated) return;
-      aboutContent?.classList.add('animate-fade-in-left');
-      aboutImage?.classList.add('animate-fade-in-right');
-      statItems.forEach((item, i) => {
-        item.classList.add('animate-fade-in-up');
-        item.style.animationDelay = `${0.1 + i * 0.1}s`;
-      });
-      animated = true;
-    }
-
-    function handleIntersect(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateAbout();
-          observer.disconnect();
-        }
-      });
-    }
-
-    if (aboutSection) {
-      const observer = new window.IntersectionObserver(handleIntersect, {
-        threshold: 0.3
-      });
-      observer.observe(aboutSection);
-    }
-  });
+  // GSAP animations will be handled by main.js
+  // This ensures consistency and better performance
 </script>

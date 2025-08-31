@@ -1,0 +1,99 @@
+---
+const baristas = [
+  {
+    name: "Sarah M.",
+    role: "Head Barista",
+    desc: "Passionate about coffee and design, Sarah crafts every cup with creativity and care.",
+    img: "/assets/barista1.jpg",
+    specialty: "Latte Art & Espresso"
+  },
+  {
+    name: "Miguel R.",
+    role: "Latte Artist",
+    desc: "Miguel brings art to every latte, making your coffee experience memorable.",
+    img: "/assets/barista2.jpg",
+    specialty: "Creative Designs"
+  },
+  {
+    name: "Jasmine T.",
+    role: "Brew Specialist",
+    desc: "Jasmine loves experimenting with blends and flavors for the perfect brew.",
+    img: "/assets/barista3.jpg",
+    specialty: "Custom Blends"
+  }
+];
+---
+
+<section class="py-20" id="baristas" style="background: var(--coffee-900); color: var(--cream);">
+  <div class="container mx-auto px-6 text-center relative z-10">
+    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8" style="color: var(--cream); font-family: var(--font-serif);">
+      Meet Our <span style="color: var(--pencil);">Master Baristas</span>
+    </h2>
+    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12" style="color: var(--coffee-100); font-family: var(--font-sans);">
+      Our team of passionate baristas is dedicated to making every cup a creative experience. Get to know the artisans behind your favorite drinks!
+    </p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {baristas.map((barista, i) => (
+        <div class="barista-card bg-[var(--coffee-800)] rounded-2xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300" style="border: 2px solid var(--coffee-700);" key={barista.name}>
+          <div class="relative mb-6">
+            <img src={barista.img} alt={`${barista.name} - ${barista.role}`} class="w-28 h-28 rounded-full mx-auto object-cover border-4 shadow-lg" style="border-color: var(--pencil); background: var(--coffee-700);" />
+            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--pencil); color: var(--coffee-900);">
+              {barista.specialty}
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-2" style="color: var(--cream); font-family: var(--font-serif);">{barista.name}</h3>
+          <p class="text-base font-semibold mb-3" style="color: var(--pencil); font-family: var(--font-sans);">{barista.role}</p>
+          <p class="text-sm leading-relaxed" style="color: var(--coffee-100); font-family: var(--font-sans);">{barista.desc}</p>
+          
+          <!-- Coffee rating stars -->
+          <div class="flex justify-center mt-4">
+            <div class="flex text-yellow-400">
+              <span class="text-lg">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Team Quote -->
+    <div class="max-w-3xl mx-auto">
+      <div class="glass-morphism p-8 rounded-2xl relative" style="background: var(--coffee-800); border: 2px solid var(--coffee-600);">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full flex items-center justify-center" style="background: var(--pencil);">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <blockquote class="text-xl italic mb-4" style="color: var(--cream); font-family: var(--font-serif);">
+          "The perfect blend of great coffee and creative energy. Every cup tells a story, every sip sparks inspiration. This is where our passion for coffee meets our love for design!"
+        </blockquote>
+        <cite class="font-semibold" style="color: var(--pencil); font-family: var(--font-sans);">- The Designers' Cafe Barista Team</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .barista-card {
+    transition: all 0.3s ease;
+  }
+  
+  .barista-card:hover {
+    box-shadow: 0 12px 40px 0 rgba(212, 148, 58, 0.3);
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  .glass-morphism {
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Animation for barista cards */
+  .barista-card:nth-child(1) { animation-delay: 0.1s; }
+  .barista-card:nth-child(2) { animation-delay: 0.2s; }
+  .barista-card:nth-child(3) { animation-delay: 0.3s; }
+</style>
+
+<script>
+  // GSAP animations will be handled by main.js
+  // This ensures consistency and better performance
+</script>
