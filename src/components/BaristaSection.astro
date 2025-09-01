@@ -4,7 +4,7 @@ const baristas = [
     name: "Sarah M.",
     role: "Head Barista",
     desc: "Passionate about coffee and design, Sarah crafts every cup with creativity and care.",
-    img: "/assets/barista1.jpg",
+    img: "/assets/barista/barista1.jpg",
     specialty: "Latte Art & Espresso",
     experience: "5+ Years",
     social: {
@@ -17,7 +17,7 @@ const baristas = [
     name: "Miguel R.",
     role: "Latte Artist",
     desc: "Miguel brings art to every latte, making your coffee experience memorable.",
-    img: "/assets/barista2.jpg",
+    img: "/assets/barista/barista2.jpg",
     specialty: "Creative Designs",
     experience: "3+ Years",
     social: {
@@ -30,7 +30,7 @@ const baristas = [
     name: "Jasmine T.",
     role: "Brew Specialist",
     desc: "Jasmine loves experimenting with blends and flavors for the perfect brew.",
-    img: "/assets/barista3.jpg",
+    img: "/assets/barista/barista3.jpg",
     specialty: "Custom Blends",
     experience: "4+ Years",
     social: {
@@ -43,7 +43,7 @@ const baristas = [
     name: "Carlos D.",
     role: "Coffee Roaster",
     desc: "Carlos masterfully roasts our signature blends with precision and passion.",
-    img: "/assets/barista4.jpg",
+    img: "/assets/barista/barista4.jpg",
     specialty: "Roasting Expert",
     experience: "6+ Years",
     social: {
@@ -56,7 +56,7 @@ const baristas = [
     name: "Luna K.",
     role: "Pastry Chef",
     desc: "Luna creates the perfect pastries to complement our coffee experience.",
-    img: "/assets/barista5.jpg",
+    img: "/assets/barista/barista5.jpg",
     specialty: "Artisan Pastries",
     experience: "4+ Years",
     social: {
@@ -108,6 +108,8 @@ const baristas = [
                           src={barista.img} 
                           alt={`${barista.name} - ${barista.role}`} 
                           class="barista-image"
+                          loading="lazy"
+                          onerror="this.src='/assets/placeholder-barista.jpg'"
                         />
                         <div class="experience-badge">
                           {barista.experience}

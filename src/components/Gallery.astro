@@ -60,90 +60,142 @@
             transform: scale(1.05);
         }
 
-        /* Responsive Grid Adjustments */
+        /* Responsive Flexbox Grid with Wrap */
         .gallery-grid {
-            display: grid;
+            display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
             width: 100%;
+            justify-content: center;
         }
 
         /* Mobile First - 2 columns */
         @media (max-width: 639px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                auto-rows: 200px;
-            }
             .gallery-item {
-                grid-column: span 1;
-                grid-row: span 1;
+                flex: 1 1 calc(50% - 0.5rem);
+                min-width: 150px;
+                height: 200px;
             }
             .gallery-item:first-child {
-                grid-column: span 2;
-                grid-row: span 1;
+                flex: 1 1 100%;
+                height: 250px;
             }
         }
 
         /* Small tablets - 3 columns */
         @media (min-width: 640px) and (max-width: 767px) {
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-                auto-rows: 200px;
+            .gallery-item {
+                flex: 1 1 calc(33.333% - 0.67rem);
+                min-width: 180px;
+                height: 200px;
             }
-            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-            .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 2; }
-            .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
-            .gallery-item:nth-child(7) { grid-column: span 3; grid-row: span 1; }
-            .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 2; }
-            .gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 1; }
-            .gallery-item:nth-child(10) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(11) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:first-child {
+                flex: 1 1 calc(66.666% - 0.33rem);
+                height: 280px;
+            }
+            .gallery-item:nth-child(7) {
+                flex: 1 1 100%;
+                height: 180px;
+            }
         }
 
         /* Medium screens - 4 columns */
         @media (min-width: 768px) and (max-width: 1023px) {
-            .gallery-grid {
-                grid-template-columns: repeat(4, 1fr);
-                auto-rows: 220px;
+            .gallery-item {
+                flex: 1 1 calc(25% - 0.75rem);
+                min-width: 160px;
+                height: 220px;
             }
-            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-            .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 2; }
-            .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
-            .gallery-item:nth-child(7) { grid-column: span 2; grid-row: span 1; }
-            .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 2; }
-            .gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 1; }
-            .gallery-item:nth-child(10) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(11) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:first-child {
+                flex: 1 1 calc(50% - 0.5rem);
+                height: 300px;
+            }
+            .gallery-item:nth-child(6),
+            .gallery-item:nth-child(7) {
+                flex: 1 1 calc(50% - 0.5rem);
+                height: 200px;
+            }
         }
 
-        /* Large screens - 6 columns (original design) */
-        @media (min-width: 1024px) {
-            .gallery-grid {
-                grid-template-columns: repeat(6, 1fr);
-                auto-rows: 240px;
+        /* Large screens - 5 columns */
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .gallery-item {
+                flex: 1 1 calc(20% - 0.8rem);
+                min-width: 180px;
+                height: 240px;
             }
-            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-            .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 2; }
-            .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(6) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(7) { grid-column: span 3; grid-row: span 1; }
-            .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 2; }
-            .gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 1; }
-            .gallery-item:nth-child(10) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(11) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:first-child {
+                flex: 1 1 calc(40% - 0.6rem);
+                height: 320px;
+            }
+            .gallery-item:nth-child(7) {
+                flex: 1 1 calc(60% - 0.4rem);
+                height: 200px;
+            }
+            .gallery-item:nth-child(9) {
+                flex: 1 1 calc(40% - 0.6rem);
+                height: 220px;
+            }
         }
 
-        /* Extra large screens - 6 columns with larger heights */
+        /* Extra large screens - 6 columns */
         @media (min-width: 1280px) {
+            .gallery-item {
+                flex: 1 1 calc(16.666% - 0.83rem);
+                min-width: 200px;
+                height: 260px;
+            }
+            .gallery-item:first-child {
+                flex: 1 1 calc(33.333% - 0.67rem);
+                height: 350px;
+            }
+            .gallery-item:nth-child(2) {
+                flex: 1 1 calc(16.666% - 0.83rem);
+                height: 350px;
+            }
+            .gallery-item:nth-child(7) {
+                flex: 1 1 calc(50% - 0.5rem);
+                height: 200px;
+            }
+            .gallery-item:nth-child(8) {
+                flex: 1 1 calc(16.666% - 0.83rem);
+                height: 320px;
+            }
+            .gallery-item:nth-child(9) {
+                flex: 1 1 calc(33.333% - 0.67rem);
+                height: 220px;
+            }
+        }
+
+        /* Ensure all items fill their containers */
+        .gallery-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            background: #f9fafb;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Auto-wrap utility for better space filling */
+        @media (max-width: 479px) {
             .gallery-grid {
-                auto-rows: 260px;
+                gap: 0.5rem;
+            }
+            .gallery-item {
+                flex: 1 1 calc(50% - 0.25rem);
+                min-width: 140px;
+                height: 180px;
+            }
+            .gallery-item:first-child {
+                flex: 1 1 100%;
+                height: 200px;
             }
         }
     </style>
@@ -161,11 +213,11 @@
                 </p>
             </div>
             
-            <!-- Responsive Mosaic Gallery Grid -->
+            <!-- Responsive Flexbox Gallery Grid with Wrap -->
             <div class="gallery-grid w-full" id="gallery-grid">
                 <!-- Gallery Item 1 - Featured -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal5.jpg" alt="Cozy Interior: Perfect for focused work" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal5.jpg" alt="Cozy Interior: Perfect for focused work" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-4">
                         <h3 class="text-[var(--cream)] text-xl font-bold" style="font-family: var(--font-serif);">Cozy Interior</h3>
                         <p class="text-[var(--cream)] text-sm" style="font-family: var(--font-sans);">Perfect for focused work</p>
@@ -173,80 +225,80 @@
                 </div>
                 
                 <!-- Gallery Item 2 -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal1.jpg" alt="Signature Drinks: Crafted with passion" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal1.jpg" alt="Signature Drinks: Crafted with passion" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Signature Drinks</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 3 -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal2.jpg" alt="Community: Where creatives connect" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal2.jpg" alt="Community: Where creatives connect" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Community</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 4 -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal3.jpg" alt="Design Workspace: Where ideas come to life" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal3.jpg" alt="Design Workspace: Where ideas come to life" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Design Workspace</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 5 -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal4.jpg" alt="Events: Design workshops & meetups" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal4.jpg" alt="Events: Design workshops & meetups" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Events</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 6 -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal6.jpg" alt="Pastries & Snacks: Freshly baked daily" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal6.jpg" alt="Pastries & Snacks: Freshly baked daily" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Pastries & Snacks</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 7 - Wide -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal7.jpg" alt="Outdoor Vibes: Relax and enjoy your brew" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal7.jpg" alt="Outdoor Vibes: Relax and enjoy your brew" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Outdoor Vibes</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 8 - Tall -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal8.jpg" alt="Evening Atmosphere: Perfect ambiance for night owls" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal8.jpg" alt="Evening Atmosphere: Perfect ambiance for night owls" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Evening Atmosphere</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 9 - Medium Wide -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal9.jpg" alt="Local Community: Heart of Pembo neighborhood" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal9.jpg" alt="Local Community: Heart of Pembo neighborhood" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Local Community</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 10 -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal10.jpg" alt="Specialty Blends: Unique flavors and aromas" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal10.jpg" alt="Specialty Blends: Unique flavors and aromas" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Specialty Blends</h3>
                     </div>
                 </div>
                 
                 <!-- Gallery Item 11 -->
-                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
-                    <img src="/assets/gal11.jpg" alt="Brand Identity: Our iconic logo design" class="w-full h-full object-cover" loading="lazy" />
+                <div class="gallery-item" style="opacity:0;">
+                    <img src="/assets/gal11.jpg" alt="Brand Identity: Our iconic logo design" loading="lazy" />
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
                         <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Brand Identity</h3>
                     </div>
