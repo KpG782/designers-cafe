@@ -2,149 +2,858 @@
 const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.984464826342!2d121.05726111101508!3d14.542881085878033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9c9d8589a75%3A0xfbec94a98dc36ea9!2sDesigners&#39;%20Cafe!5e0!3m2!1sen!2sph!4v1756671883218!5m2!1sen!2sph";
 ---
 
-<section class="py-20 md:py-24" id="location" style="background: var(--coffee-900); color: var(--cream);">
+<section class="py-20 md:py-24 relative overflow-hidden" id="location" style="background: var(--coffee-900); color: var(--cream);">
+  <!-- Coffee bean background pattern -->
+  <div class="absolute inset-0 opacity-5 pointer-events-none">
+    <div class="coffee-bean-pattern"></div>
+    <div class="steam-animation steam-1"></div>
+    <div class="steam-animation steam-2"></div>
+    <div class="steam-animation steam-3"></div>
+  </div>
+
   <div class="container mx-auto px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-12 md:mb-20">
-      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4" style="color: var(--cream);">
-        Visit Our <span style="color: var(--pencil);">Cafe</span>
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-20 location-header" style="opacity: 0;">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6" style="color: var(--cream); font-family: var(--font-serif);">
+        Visit Our <span style="color: var(--pencil);">Coffee Haven</span>
       </h2>
-      <p class="text-base md:text-lg max-w-xl mx-auto mb-6" style="color: var(--coffee-100);">
-        Located in Pembo, Taguig. Enjoy specialty drinks, creative workspace, and friendly staff.
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8" style="color: var(--cream); font-family: var(--font-sans);">
+        Located in the heart of Pembo, Taguig. Where creativity flows as freely as our freshly brewed coffee.
       </p>
+      <div class="w-24 h-1 mx-auto rounded-full" style="background: var(--pencil);"></div>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 justify-center items-start">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
       <!-- Contact Information Card -->
-      <div class="location-content bg-[var(--coffee-800)] rounded-xl p-8 shadow-2xl w-full border border-coffee-600" style="opacity:1;">
-        <!-- Contact Information -->
-        <div class="contact-info space-y-6" style="opacity: 1;">
-          <div>
-            <h3 class="text-2xl font-serif font-bold mb-8 text-center" style="color: var(--pencil);">Contact Information</h3>
-          
-            <!-- Phone -->
-            <div class="flex items-center space-x-4 mb-6 p-5 rounded-xl hover:bg-coffee-700 transition-colors" style="background: var(--coffee-700);">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg" style="background: var(--pencil);">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+      <div class="location-content coffee-card" style="opacity: 0;">
+        <div class="card-header">
+          <div class="coffee-cup-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+              <path d="M18.5 3H6C4.89 3 4 3.89 4 5V19C4 20.11 4.89 21 6 21H18C19.11 21 20 20.11 20 19V5C20 3.89 19.11 3 18.5 3ZM12 7C10.34 7 9 8.34 9 10S10.34 13 12 13 15 11.66 15 10 13.66 7 12 7Z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-serif font-bold" style="color: var(--cream); font-family: var(--font-serif);">
+            Get In Touch
+          </h3>
+          <p class="text-sm" style="color: var(--cream); opacity: 0.9;">Connect with our coffee community</p>
+        </div>
+
+        <div class="contact-info space-y-4">
+          <!-- Phone -->
+          <div class="contact-item" style="opacity: 0;">
+            <div class="contact-icon">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
               </svg>
             </div>
-              <div>
-                <h4 class="font-semibold text-lg mb-2" style="color: var(--cream);">Call Us</h4>
-                <p style="color: var(--coffee-200);">
-                  <a href="tel:+639615235176" class="hover:text-[var(--pencil)] transition-colors text-lg">
-                    +63 961 523 5176
-                  </a>
-                </p>
-              </div>
+            <div class="contact-details">
+              <h4 class="font-semibold text-base mb-1" style="color: var(--cream);">Call Us</h4>
+              <p>
+                <a href="tel:+639615235176" 
+                   class="contact-link text-lg font-medium"
+                   style="color: var(--cream); text-decoration: underline;">
+                  +63 961 523 5176
+                </a>
+              </p>
+              <span class="contact-description">Order ahead or ask questions</span>
             </div>
           </div>
 
-            <!-- Email -->
-            <div class="flex items-center space-x-4 mb-6 p-5 rounded-xl hover:bg-coffee-700 transition-colors" style="background: var(--coffee-700);">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--pencil);">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <!-- Email -->
+          <div class="contact-item" style="opacity: 0;">
+            <div class="contact-icon">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
               </svg>
             </div>
-            <div>
-              <h4 class="font-semibold text-lg mb-2" style="color: var(--coffee-900);">Email</h4>
-              <p style="color: var(--coffee-700);">
-                <a href="mailto:designerscafeshop@gmail.com" class="hover:text-[var(--pencil)] transition-colors">
+            <div class="contact-details">
+              <h4 class="font-semibold text-base mb-1" style="color: var(--cream);">Email Us</h4>
+              <p>
+                <a href="mailto:designerscafeshop@gmail.com" 
+                   class="contact-link font-medium"
+                   style="color: var(--cream); text-decoration: underline;">
                   designerscafeshop@gmail.com
                 </a>
               </p>
+              <span class="contact-description">For partnerships and feedback</span>
             </div>
           </div>
 
           <!-- Hours -->
-          <div class="flex items-start space-x-4 mb-6 p-4 rounded-xl" style="background: var(--coffee-50);">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--pencil);">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <div class="contact-item hours-item" style="opacity: 0;">
+            <div class="contact-icon">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
               </svg>
             </div>
-            <div>
-              <h4 class="font-semibold text-lg mb-2" style="color: var(--coffee-900);">Opening Hours</h4>
-              <div style="color: var(--coffee-700);">
-                <p>Sunday - Thursday: <span style="color: var(--pencil); font-weight: 600;">3:00 PM - 11:00 PM</span></p>
-                <p>Friday: <span class="text-red-500 font-weight: 600;">Closed</span></p>
-                <p>Saturday: <span style="color: var(--pencil); font-weight: 600;">3:00 PM - 11:00 PM</span></p>
+            <div class="contact-details">
+              <h4 class="font-semibold text-base mb-2" style="color: var(--cream);">Brewing Hours</h4>
+              <div class="hours-schedule">
+                <div class="hours-row">
+                  <span class="day">Sunday - Thursday</span>
+                  <span class="time open-time">3:00 PM - 11:00 PM</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Friday</span>
+                  <span class="time closed-time">Closed</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Saturday</span>
+                  <span class="time open-time">3:00 PM - 11:00 PM</span>
+                </div>
+              </div>
+              <div class="status-badge">
+                <div class="status-indicator"></div>
+                <span class="status-text">Currently Open</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Social Media -->
-        <div class="text-center pt-8 border-t" style="border-color: var(--coffee-200);">
-          <h4 class="font-semibold text-lg mb-4" style="color: var(--coffee-900);">Follow Us</h4>
-          <div class="flex justify-center space-x-4">
-            <a href="#" class="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2" style="background: var(--pencil);" aria-label="Follow us on Facebook">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <div class="social-section" style="opacity: 0;">
+          <h4 class="font-semibold text-lg mb-4 text-center" style="color: var(--cream);">
+            Join Our Coffee Community
+          </h4>
+          <div class="flex justify-center space-x-6">
+            <a href="https://www.facebook.com/profile.php?id=61568501014928" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-link facebook-link" 
+               aria-label="Follow us on Facebook">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
+              <span class="sr-only">Facebook</span>
             </a>
-            <a href="#" class="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2" style="background: var(--pencil);" aria-label="Follow us on Instagram">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.251 14.794 3.76 13.643 3.76 12.346s.491-2.448 1.366-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.875.875 1.297 2.026 1.297 3.323s-.422 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.876c-.245 0-.49-.098-.666-.274-.177-.177-.274-.421-.274-.667 0-.245.098-.49.274-.666.177-.177.421-.274.666-.274s.49.098.667.274c.176.177.274.421.274.666 0 .246-.098.49-.274.667-.177.176-.422.274-.667.274z"/>
+            <a href="https://www.instagram.com/designerscafeshop/" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-link instagram-link" 
+               aria-label="Follow us on Instagram">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a href="https://twitter.com/designerscafe" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-link twitter-link" 
+               aria-label="Follow us on Twitter">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+              <span class="sr-only">Twitter</span>
             </a>
           </div>
         </div>
       </div>
-      <!-- Hours and Map Card -->
-      <div class="hours-content bg-[var(--coffee-800)] rounded-xl p-8 shadow-2xl w-full flex flex-col items-center border border-coffee-600" style="opacity:1;">
-        <h3 class="text-2xl font-serif font-bold mb-6 text-center" style="color: var(--pencil);">Hours & Location</h3>
-        <ul class="text-base mb-4" style="color: var(--cream);">
-          <li>Sun-Thu: <span style="color: var(--pencil); font-weight:600;">3:00 PM - 11:00 PM</span></li>
-          <li>Friday: <span style="color: #f87171; font-weight:600;">Closed</span></li>
-        </ul>
-        <div class="mt-2 text-center">
-          <span class="inline-flex items-center bg-green-500 bg-opacity-20 text-green-400 px-4 py-2 rounded-full font-medium">
-            <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-            Currently Open
-          </span>
+
+      <!-- Map and Location Card -->
+      <div class="hours-content coffee-card" style="opacity: 0;">
+        <div class="card-header">
+          <div class="coffee-cup-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-serif font-bold" style="color: var(--cream); font-family: var(--font-serif);">
+            Find Your Way
+          </h3>
+          <p class="text-sm" style="color: var(--cream); opacity: 0.9;">Navigate to coffee paradise</p>
         </div>
-        <div class="w-full mt-8 rounded-xl overflow-hidden shadow-lg bg-[var(--coffee-900)] p-3">
-          <h4 class="text-base font-semibold mb-3 text-center" style="color: var(--pencil);">Find Us on the Map</h4>
-          <div class="relative w-full" style="padding-bottom: 50%; height: 0;">
+
+        <!-- Quick Hours Summary -->
+        <div class="quick-hours" style="opacity: 0;">
+          <div class="hours-summary">
+            <div class="hours-today">
+              <span class="today-label">Today's Hours:</span>
+              <span class="today-time">3:00 PM - 11:00 PM</span>
+            </div>
+            <div class="status-badge-large">
+              <div class="status-indicator-large"></div>
+              <span class="status-text-large">Open Now - Welcome!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Map -->
+        <div class="map-container" style="opacity: 0;">
+          <div class="map-header">
+            <h4 class="text-lg font-semibold mb-2" style="color: var(--cream);">
+              📍 Pembo, Taguig City
+            </h4>
+            <p class="text-sm mb-4" style="color: var(--cream); opacity: 0.9;">
+              Easy to find, hard to leave
+            </p>
+          </div>
+          <div class="map-wrapper">
             <iframe
               src={mapEmbedUrl}
-              class="absolute top-0 left-0 w-full h-full"
-              style="border:0; border-radius: 0.75rem;"
+              class="map-frame"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               title="Designers' Cafe Location Map"
             ></iframe>
           </div>
-          <a href="https://www.google.com/maps/dir/14.7161088,121.126912/14.5424662,121.05978/@14.6293736,121.0124593,12z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?authuser=2&entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-            class="mt-2 inline-block text-[var(--pencil)] hover:text-[var(--cream)] font-medium"
-          >
-            Get Directions →
-          </a>
+          <div class="map-actions">
+            <a href="https://www.google.com/maps/dir/14.7161088,121.126912/14.5424662,121.05978/@14.6293736,121.0124593,12z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?authuser=2&entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="directions-btn">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m0 0L9 7"/>
+              </svg>
+              Get Directions
+            </a>
+            <button class="share-location-btn" onclick="shareLocation()">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+              </svg>
+              Share Location
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <style>
-  @keyframes fade-in-left {
-    from { opacity: 0; transform: translateX(-40px);}
-    to { opacity: 1; transform: translateX(0);}
+  /* Coffee bean background pattern */
+  .coffee-bean-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(212, 148, 58, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 80% 80%, rgba(212, 148, 58, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 40% 60%, rgba(139, 75, 26, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px, 120px 120px, 80px 80px;
+    animation: float-pattern 20s ease-in-out infinite;
   }
-  @keyframes fade-in-right {
-    from { opacity: 0; transform: translateX(40px);}
-    to { opacity: 1; transform: translateX(0);}
+
+  @keyframes float-pattern {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
-  .animate-fade-in-left {
-    animation: fade-in-left 0.8s cubic-bezier(.4,0,.2,1) both;
+
+  /* Steam animations */
+  .steam-animation {
+    position: absolute;
+    width: 4px;
+    height: 60px;
+    background: linear-gradient(180deg, rgba(212, 148, 58, 0.3) 0%, transparent 100%);
+    border-radius: 50%;
+    animation: steam-rise 4s ease-in-out infinite;
   }
-  .animate-fade-in-right {
-    animation: fade-in-right 0.8s cubic-bezier(.4,0,.2,1) both;
+
+  .steam-1 {
+    top: 15%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+
+  .steam-2 {
+    top: 30%;
+    right: 20%;
+    animation-delay: 1.5s;
+  }
+
+  .steam-3 {
+    bottom: 25%;
+    left: 25%;
+    animation-delay: 3s;
+  }
+
+  @keyframes steam-rise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(-30px) scale(0.8); opacity: 0; }
+  }
+
+  /* Coffee card styling */
+  .coffee-card {
+    background: linear-gradient(135deg, var(--coffee-800) 0%, var(--coffee-700) 100%);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(212, 148, 58, 0.1);
+    border: 1px solid rgba(212, 148, 58, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coffee-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(212, 148, 58, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .card-header {
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .coffee-cup-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--pencil);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(212, 148, 58, 0.3);
+  }
+
+  /* Contact items */
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 148, 58, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 148, 58, 0.1) 50%, transparent 100%);
+    transition: left 0.6s ease;
+  }
+
+  .contact-item:hover::before {
+    left: 100%;
+  }
+
+  .contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(212, 148, 58, 0.3);
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--pencil);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(212, 148, 58, 0.2);
+  }
+
+  .contact-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .contact-link {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .contact-link:hover {
+    color: var(--pencil) !important;
+    text-decoration-color: var(--pencil) !important;
+    transform: translateX(2px);
+  }
+
+  .contact-link:focus {
+    outline: 2px solid var(--pencil);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .contact-description {
+    font-size: 0.85rem;
+    color: var(--cream);
+    opacity: 0.7;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* Hours styling */
+  .hours-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+  }
+
+  .hours-row:has(.open-time) {
+    border-left-color: var(--pencil);
+  }
+
+  .hours-row:has(.closed-time) {
+    border-left-color: #ef4444;
+    opacity: 0.7;
+  }
+
+  .day {
+    font-weight: 500;
+    color: var(--cream);
+  }
+
+  .open-time {
+    color: var(--pencil);
+    font-weight: 600;
+  }
+
+  .closed-time {
+    color: #ef4444;
+    font-weight: 600;
+  }
+
+  /* Status badges */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-top: 12px;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse-green 2s infinite;
+  }
+
+  .status-text {
+    color: #22c55e;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .status-badge-large {
+    background: rgba(34, 197, 94, 0.15);
+    border: 2px solid rgba(34, 197, 94, 0.4);
+    padding: 12px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .status-indicator-large {
+    width: 12px;
+    height: 12px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse-green 2s infinite;
+  }
+
+  .status-text-large {
+    color: #22c55e;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  @keyframes pulse-green {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  /* Quick hours */
+  .quick-hours {
+    margin-bottom: 24px;
+  }
+
+  .hours-summary {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(212, 148, 58, 0.1);
+  }
+
+  .hours-today {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .today-label {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .today-time {
+    color: var(--pencil);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  /* Social media */
+  .social-section {
+    border-top: 1px solid rgba(212, 148, 58, 0.2);
+    padding-top: 24px;
+    margin-top: 24px;
+  }
+
+  .social-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .facebook-link {
+    background: #1877f2;
+    color: white;
+  }
+
+  .instagram-link {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+  }
+
+  .twitter-link {
+    background: #1da1f2;
+    color: white;
+  }
+
+  .social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .social-link:focus {
+    outline: 3px solid var(--pencil);
+    outline-offset: 3px;
+  }
+
+  /* Map container */
+  .map-container {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(212, 148, 58, 0.1);
+  }
+
+  .map-header {
+    text-align: center;
+  }
+
+  .map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    margin-bottom: 16px;
+  }
+
+  .map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: sepia(10%) saturate(90%) hue-rotate(15deg);
+  }
+
+  .map-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .directions-btn,
+  .share-location-btn {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .directions-btn {
+    background: var(--pencil);
+    color: white;
+  }
+
+  .share-location-btn {
+    background: rgba(212, 148, 58, 0.1);
+    color: var(--pencil);
+    border: 1px solid var(--pencil);
+  }
+
+  .directions-btn:hover,
+  .share-location-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .directions-btn:focus,
+  .share-location-btn:focus {
+    outline: 2px solid var(--cream);
+    outline-offset: 2px;
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .coffee-card {
+      padding: 24px;
+    }
+    
+    .contact-item {
+      padding: 16px;
+    }
+    
+    .map-wrapper {
+      height: 200px;
+    }
+    
+    .hours-today {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+    
+    .map-actions {
+      flex-direction: column;
+    }
+    
+    .social-link {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  /* Animation classes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-fadeInLeft {
+    animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-fadeInRight {
+    animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-fadeInScale {
+    animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 </style>
+
 <script>
-  // GSAP animations will be handled by main.js
-  // This ensures consistency and better performance
+  window.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('location');
+    let animated = false;
+
+    function animateLocationSection() {
+      if (animated) return;
+      
+      // Header animation
+      const header = document.querySelector('.location-header');
+      if (header) {
+        setTimeout(() => {
+          header.style.opacity = '1';
+          header.classList.add('animate-fadeInUp');
+        }, 100);
+      }
+      
+      // Left card (contact info) animation
+      const locationContent = document.querySelector('.location-content');
+      if (locationContent) {
+        setTimeout(() => {
+          locationContent.style.opacity = '1';
+          locationContent.classList.add('animate-fadeInLeft');
+        }, 300);
+      }
+      
+      // Contact items staggered animation
+      const contactItems = document.querySelectorAll('.contact-item');
+      contactItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.classList.add('animate-fadeInUp');
+        }, 500 + (index * 150));
+      });
+      
+      // Social section animation
+      const socialSection = document.querySelector('.social-section');
+      if (socialSection) {
+        setTimeout(() => {
+          socialSection.style.opacity = '1';
+          socialSection.classList.add('animate-fadeInScale');
+        }, 1000);
+      }
+      
+      // Right card (map) animation
+      const hoursContent = document.querySelector('.hours-content');
+      if (hoursContent) {
+        setTimeout(() => {
+          hoursContent.style.opacity = '1';
+          hoursContent.classList.add('animate-fadeInRight');
+        }, 600);
+      }
+      
+      // Quick hours animation
+      const quickHours = document.querySelector('.quick-hours');
+      if (quickHours) {
+        setTimeout(() => {
+          quickHours.style.opacity = '1';
+          quickHours.classList.add('animate-fadeInUp');
+        }, 800);
+      }
+      
+      // Map container animation
+      const mapContainer = document.querySelector('.map-container');
+      if (mapContainer) {
+        setTimeout(() => {
+          mapContainer.style.opacity = '1';
+          mapContainer.classList.add('animate-fadeInScale');
+        }, 1000);
+      }
+      
+      animated = true;
+    }
+
+    // Intersection Observer for scroll animation
+    if (section) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateLocationSection();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      observer.observe(section);
+    }
+
+    // Share location functionality
+    window.shareLocation = function() {
+      if (navigator.share) {
+        navigator.share({
+          title: "Designers' Cafe Location",
+          text: "Check out this amazing coffee shop in Pembo, Taguig!",
+          url: "https://www.google.com/maps/place/Designers'+Cafe/@14.5424662,121.05978,17z"
+        }).catch(console.error);
+      } else {
+        // Fallback for browsers that don't support Web Share API
+        const url = "https://www.google.com/maps/place/Designers'+Cafe/@14.5424662,121.05978,17z";
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Location link copied to clipboard!');
+        }).catch(() => {
+          // Fallback if clipboard API fails
+          const textArea = document.createElement('textarea');
+          textArea.value = url;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          alert('Location link copied to clipboard!');
+        });
+      }
+    };
+  });
 </script>

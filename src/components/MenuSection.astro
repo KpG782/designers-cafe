@@ -3,8 +3,8 @@ const categories = [
   {
     key: "coffee",
     name: "Coffee",
-    color: "bg-[var(--coffee-900)] text-white", // dark brown
-    image: "/assets/placeholder-coffee.jpg",
+    color: "bg-[var(--coffee-900)] text-white",
+    image: "/assets/peppermint.jpg",
     desc: "Classic espresso-based drinks and house blends for every coffee lover.",
     items: [
       { name: "Americano", price: 65, desc: "Smooth and bold espresso with hot water." },
@@ -22,8 +22,8 @@ const categories = [
   {
     key: "frappuccino",
     name: "Frappés",
-    color: "bg-[var(--pencil)] text-[var(--coffee-900)]", // pencil gold
-    image: "/assets/placeholder-frappe.jpg",
+    color: "bg-[var(--pencil)] text-[var(--coffee-900)]",
+    image: "/assets/peppermint.jpg",
     desc: "Icy, blended drinks in creative flavors for a refreshing treat.",
     items: [
       { name: "Chocolate Frappe", price: 140, desc: "Blended chocolate and espresso." },
@@ -39,8 +39,8 @@ const categories = [
   {
     key: "food",
     name: "Food",
-    color: "bg-[var(--coffee-600)] text-white", // coffee brown
-    image: "/assets/placeholder-food.jpg",
+    color: "bg-[var(--coffee-600)] text-white",
+    image: "/assets/peppermint.jpg",
     desc: "Hearty meals, pasta, and snacks to pair with your favorite drink.",
     items: [
       { name: "Burger Steak", price: 110, desc: "Juicy patty with savory sauce." },
@@ -59,8 +59,8 @@ const categories = [
   {
     key: "noncoffee",
     name: "Non-Coffee",
-    color: "bg-[#2563eb] text-white", // blue accent
-    image: "/assets/placeholder-noncoffee.jpg",
+    color: "bg-[#2563eb] text-white",
+    image: "/assets/peppermint.jpg",
     desc: "Delicious drinks for non-coffee lovers and kids.",
     items: [
       { name: "Hot Choco", price: 85, desc: "Rich and creamy hot chocolate." },
@@ -74,8 +74,8 @@ const categories = [
   {
     key: "add-ons",
     name: "Add Ons",
-    color: "bg-[var(--cream)] text-[var(--coffee-900)] border border-[var(--coffee-200)]", // light cream
-    image: "/assets/placeholder-addons.jpg",
+    color: "bg-[var(--cream)] text-[var(--coffee-900)] border border-[var(--coffee-200)]",
+    image: "/assets/peppermint.jpg",
     desc: "Customize your order with extra shots, dips, and more.",
     items: [
       { name: "Espresso Shot", price: 20, desc: "Extra caffeine boost." },
@@ -92,8 +92,8 @@ const categories = [
   {
     key: "accessories",
     name: "Accessories",
-    color: "bg-[var(--coffee-200)] text-[var(--coffee-900)]", // light gold
-    image: "/assets/placeholder-accessories.jpg",
+    color: "bg-[var(--coffee-200)] text-[var(--coffee-900)]",
+    image: "/assets/peppermint.jpg",
     desc: "Fun and creative accessories for your drinks and style.",
     items: [
       { name: "Bracelet", price: 60, desc: "Handmade, creative bracelet." },
@@ -120,27 +120,22 @@ let selectedCategory = categories[0].key;
   </div>
   <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6" style="color: var(--coffee-900, #2E1C09);">
-        Our <span class="text-gradient">Signature</span> Creations
+      <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6" style="color: var(--coffee-900, #2E1C09); font-family: var(--font-serif);">
+        Our <span style="color: var(--pencil);">Signature</span> Creations
       </h2>
-      <p class="text-lg max-w-2xl mx-auto" style="color: var(--coffee-600, #8B4B1A);">
+      <p class="text-lg max-w-2xl mx-auto" style="color: var(--coffee-600, #8B4B1A); font-family: var(--font-sans);">
         Each drink is crafted with the precision of a designer and the passion of an artist. 
         Explore our curated collection of coffee perfection.
       </p>
     </div>
     <!-- Menu Categories -->
-    <div class="flex flex-wrap justify-center gap-4 mb-12" id="menu-categories" role="tablist" aria-label="Menu categories">
+    <div class="flex flex-wrap justify-center gap-4 mb-12" id="menu-categories">
       {categories.map((cat, i) => (
         <button
-          class={`category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 ${selectedCategory === cat.key ? cat.color + " ring-2 ring-[var(--pencil)]" : "glass-morphism text-[var(--coffee-700)] hover:bg-[var(--pencil)] hover:text-white"} animate-fade-in`}
-          data-category={cat.key}
-          role="tab"
-          aria-selected={selectedCategory === cat.key}
-          aria-controls={`menu-${cat.key}`}
-          aria-label={`Filter menu by ${cat.name} category`}
+          class={`category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 ${selectedCategory === cat.key ? cat.color + " ring-2 ring-[var(--pencil)]" : "glass-morphism text-[var(--coffee-700)] hover:bg-[var(--pencil)] hover:text-white"}`}
           data-category={cat.key}
           type="button"
-          style={`animation-delay: ${0.1 + i * 0.1}s`}
+          style={`animation-delay: ${0.1 + i * 0.1}s; opacity:0;`}
         >
           {cat.name}
         </button>
@@ -148,45 +143,29 @@ let selectedCategory = categories[0].key;
     </div>
     <!-- Category Description -->
     <div class="text-center mb-8">
-      <p class="text-base md:text-lg font-medium transition-all duration-300 min-h-[1.5em]" style="color: var(--coffee-700, #6B3614);">
+      <p class="text-base md:text-lg font-medium transition-all duration-300 min-h-[1.5em]" id="category-description" style="color: var(--coffee-700, #6B3614); font-family: var(--font-sans);">
         {categories.find(cat => cat.key === selectedCategory)?.desc}
       </p>
     </div>
     <!-- Menu Items Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-items" role="tabpanel" aria-labelledby="menu-categories">
-      {categories
-        .filter(cat => cat.key === selectedCategory)
-        .map(cat =>
-          cat.items.map((item, idx) => (
-            <div class={`menu-item ${cat.key} rounded-2xl p-6 shadow-lg transition-all duration-300 transform hover:-translate-y-2`}
-              style={`opacity:1; animation-delay: ${0.2 + idx * 0.1}s; background: var(--coffee-50, #FDF7F0); border: 2px solid var(--coffee-200, #efcca5);`}>
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold" style="color: var(--coffee-900, #2E1C09); font-family: var(--font-serif);">{item.name}</h3>
-                <span class="text-2xl font-bold" style="color: var(--pencil, #D4943A); font-family: var(--font-sans);">₱{item.price}</span>
-              </div>
-              <div class="mb-4 flex justify-center">
-                <div class="w-24 h-24 rounded-full overflow-hidden shadow-inner border-4" style="border-color: var(--coffee-100, #F7E6D3); background: var(--cream, #F8F4F0); display: flex; align-items: center; justify-content: center;">
-                  <img src={cat.image} alt={cat.name + " placeholder"} class="w-20 h-20 object-cover rounded-full" />
-                </div>
-              </div>
-              <p class="text-sm mb-4" style="color: var(--coffee-700, #6B3614); font-family: var(--font-sans);">{item.desc}</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="flex text-yellow-500 text-sm">
-                    <span>★★★★★</span>
-                  </div>
-                  <span class="text-[var(--coffee-500)] text-sm ml-2">(sample reviews)</span>
-                </div>
-                <button class="add-to-cart px-4 py-2 rounded-full hover:bg-[var(--coffee-600)] transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-                  style="background: var(--pencil, #D4943A); color: #fff; font-family: var(--font-sans); font-weight: 600;"
-                  aria-label={`Add ${item.name} to cart for ${item.price} pesos`}>
-                  Add to Cart
-                </button>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-items">
+      {categories.map(cat =>
+        cat.items.map((item, idx) => (
+          <div class={`menu-item menu-item-${cat.key} rounded-2xl p-6 shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl`}
+            style={`background: var(--coffee-50, #FDF7F0); border: 2px solid var(--coffee-200, #efcca5); display: ${cat.key === selectedCategory ? 'block' : 'none'}; opacity:0;`}>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--coffee-900, #2E1C09); font-family: var(--font-serif);">{item.name}</h3>
+              <span class="text-2xl font-bold" style="color: var(--pencil, #D4943A); font-family: var(--font-sans);">₱{item.price}</span>
+            </div>
+            <div class="mb-4 flex justify-center">
+              <div class="w-24 h-24 rounded-full overflow-hidden shadow-inner border-4" style="border-color: var(--coffee-100, #F7E6D3); background: var(--cream, #F8F4F0); display: flex; align-items: center; justify-content: center;">
+                <img src={cat.image} alt={item.name} class="w-20 h-20 object-cover rounded-full" />
               </div>
             </div>
-          ))
-        )
-      }
+            <p class="text-sm mb-4 text-center" style="color: var(--coffee-700, #6B3614); font-family: var(--font-sans);">{item.desc}</p>
+          </div>
+        ))
+      )}
     </div>
     <div class="text-center mt-12">
       <button class="view-full-menu bg-transparent border-2 px-8 py-4 rounded-full font-semibold hover:bg-[var(--pencil)] hover:text-white transition-all duration-300 transform hover:scale-105"
@@ -202,53 +181,144 @@ let selectedCategory = categories[0].key;
     from { opacity: 0; transform: translateY(32px);}
     to { opacity: 1; transform: translateY(0);}
   }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(24px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
   .animate-fade-in-up {
     animation: fade-in-up 0.7s cubic-bezier(.4,0,.2,1) both;
   }
-  /* ...existing code... */
+  .animate-fade-in {
+    animation: fade-in 0.7s cubic-bezier(.4,0,.2,1) both;
+  }
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 </style>
+
 <script>
-  // Menu category filtering functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    let currentCategory = 'coffee'; // Default category
-    
-    // Get all menu items and categories
+  window.addEventListener('DOMContentLoaded', () => {
+    const menuSection = document.getElementById('menu');
     const categoryButtons = document.querySelectorAll('.category-btn');
     const menuItems = document.querySelectorAll('.menu-item');
-    
+    const categoryDescription = document.getElementById('category-description');
+    let currentCategory = 'coffee';
+    let animated = false;
+
+    const categories = [
+      {
+        key: "coffee",
+        name: "Coffee",
+        color: "bg-[var(--coffee-900)] text-white",
+        desc: "Classic espresso-based drinks and house blends for every coffee lover."
+      },
+      {
+        key: "frappuccino",
+        name: "Frappés",
+        color: "bg-[var(--pencil)] text-[var(--coffee-900)]",
+        desc: "Icy, blended drinks in creative flavors for a refreshing treat."
+      },
+      {
+        key: "food",
+        name: "Food",
+        color: "bg-[var(--coffee-600)] text-white",
+        desc: "Hearty meals, pasta, and snacks to pair with your favorite drink."
+      },
+      {
+        key: "noncoffee",
+        name: "Non-Coffee",
+        color: "bg-[#2563eb] text-white",
+        desc: "Delicious drinks for non-coffee lovers and kids."
+      },
+      {
+        key: "add-ons",
+        name: "Add Ons",
+        color: "bg-[var(--cream)] text-[var(--coffee-900)] border border-[var(--coffee-200)]",
+        desc: "Customize your order with extra shots, dips, and more."
+      },
+      {
+        key: "accessories",
+        name: "Accessories",
+        color: "bg-[var(--coffee-200)] text-[var(--coffee-900)]",
+        desc: "Fun and creative accessories for your drinks and style."
+      }
+    ];
+
     function showCategory(category) {
-      // Hide all items first
+      // Hide all items
       menuItems.forEach(item => {
         item.style.display = 'none';
-        item.classList.remove('animate-fade-in-up');
+        item.style.opacity = '0';
       });
-      
-      // Show items for selected category
-      const categoryItems = document.querySelectorAll(`.menu-item.${category}`);
+
+      // Show items for selected category with stagger animation
+      const categoryItems = document.querySelectorAll(`.menu-item-${category}`);
       categoryItems.forEach((item, index) => {
         setTimeout(() => {
           item.style.display = 'block';
-          item.classList.add('animate-fade-in-up');
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.classList.add('animate-fade-in-up');
+          }, 50);
         }, index * 100);
       });
-      
+
+      // Update category description
+      const categoryData = categories.find(cat => cat.key === category);
+      if (categoryData && categoryDescription) {
+        categoryDescription.textContent = categoryData.desc;
+      }
+
       // Update button states
       categoryButtons.forEach(btn => {
-        btn.classList.remove('bg-[var(--pencil)]', 'text-white', 'ring-2', 'ring-[var(--pencil)]');
-        btn.classList.add('glass-morphism', 'text-[var(--coffee-700)]');
-        btn.setAttribute('aria-selected', 'false');
+        const btnCategory = btn.getAttribute('data-category');
+        if (btnCategory === category) {
+          btn.className = `category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 ${categoryData.color} ring-2 ring-[var(--pencil)]`;
+        } else {
+          btn.className = `category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 glass-morphism text-[var(--coffee-700)] hover:bg-[var(--pencil)] hover:text-white`;
+        }
       });
-      
-      // Activate selected button
-      const activeButton = document.querySelector(`[data-category="${category}"]`);
-      if (activeButton) {
-        activeButton.classList.remove('glass-morphism', 'text-[var(--coffee-700)]');
-        activeButton.classList.add('bg-[var(--pencil)]', 'text-white', 'ring-2', 'ring-[var(--pencil)]');
-        activeButton.setAttribute('aria-selected', 'true');
-      }
     }
-    
-    // Add click handlers to category buttons
+
+    function animateMenu() {
+      if (animated) return;
+      
+      // Animate category buttons
+      categoryButtons.forEach((btn, i) => {
+        setTimeout(() => {
+          btn.style.opacity = '1';
+          btn.classList.add('animate-fade-in');
+        }, i * 100);
+      });
+
+      // Show initial category items
+      setTimeout(() => {
+        showCategory(currentCategory);
+      }, 500);
+
+      animated = true;
+    }
+
+    function handleIntersect(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateMenu();
+          observer.disconnect();
+        }
+      });
+    }
+
+    // Intersection observer for scroll-triggered animation
+    if (menuSection) {
+      const observer = new window.IntersectionObserver(handleIntersect, {
+        threshold: 0.2
+      });
+      observer.observe(menuSection);
+    }
+
+    // Category button click handlers
     categoryButtons.forEach(button => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
@@ -256,28 +326,8 @@ let selectedCategory = categories[0].key;
         if (category && category !== currentCategory) {
           currentCategory = category;
           showCategory(category);
-          
-          // Add button click animation
-          gsap.to(button, {
-            scale: 0.95,
-            duration: 0.1,
-            yoyo: true,
-            repeat: 1,
-            ease: "power2.inOut"
-          });
-        }
-      });
-      
-      // Keyboard support
-      button.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          button.click();
         }
       });
     });
-    
-    // Initialize with default category
-    showCategory(currentCategory);
   });
 </script>

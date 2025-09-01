@@ -1,182 +1,300 @@
----
 
-const galleryImages = [
-  {
-    src: "/assets/gal1.jpg",
-    title: "Cozy Interior",
-    desc: "Perfect for focused work",
-    tag: "Interior Design"
-  },
-  {
-    src: "/assets/gal2.jpg",
-    title: "Signature Drinks",
-    desc: "Crafted with passion",
-    tag: "Coffee Artistry"
-  },
-  {
-    src: "/assets/gal3.jpg",
-    title: "Community",
-    desc: "Where creatives connect",
-    tag: "Creative Community"
-  },
-  {
-    src: "/assets/gal4.jpg",
-    title: "Design Workspace",
-    desc: "Where ideas come to life",
-    tag: "Productive Environment"
-  },
-  {
-    src: "/assets/gal5.jpg",
-    title: "Events",
-    desc: "Design workshops & meetups",
-    tag: "Creative Events"
-  },
-  {
-    src: "/assets/gal6.jpg",
-    title: "Pastries & Snacks",
-    desc: "Freshly baked daily",
-    tag: "Cafe Treats"
-  },
-  {
-    src: "/assets/gal7.jpg",
-    title: "Outdoor Vibes",
-    desc: "Relax and enjoy your brew",
-    tag: "Al Fresco"
-  },
-  // Extra placeholders to fill the grid and avoid blanks
-  {
-    src: "/assets/gal1.jpg",
-    title: "Cafe Moments",
-    desc: "Enjoy every sip and scene.",
-    tag: "Cafe Life"
-  },
-  {
-    src: "/assets/gal2.jpg",
-    title: "Barista at Work",
-    desc: "Crafting your perfect cup.",
-    tag: "Barista"
-  },
-  {
-    src: "/assets/gal3.jpg",
-    title: "Artisan Coffee",
-    desc: "Handcrafted with love.",
-    tag: "Artisan"
-  },
-  {
-    src: "/assets/gal4.jpg",
-    title: "Chill Spot",
-    desc: "Unwind and relax.",
-    tag: "Chill"
-  },
-  {
-    src: "/assets/gal5.jpg",
-    title: "Creative Corners",
-    desc: "Inspiring every visit.",
-    tag: "Inspiration"
-  }
-];
----
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Atmosphere Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --coffee-900: #2D1B12;
+            --coffee-600: #8B4513;
+            --pencil: #FFD700;
+            --cream: #FFF8DC;
+            --font-serif: 'Georgia', serif;
+            --font-sans: 'Arial', sans-serif;
+        }
 
-<section class="py-20 bg-white" id="gallery">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-serif font-bold text-coffee-900 mb-6">
-        The <span class="text-gradient">Creative</span> Atmosphere
-      </h2>
-      <p class="text-lg text-coffee-600 max-w-2xl mx-auto">
-        Step into a space designed to inspire. Where every corner tells a story and 
-        every detail sparks creativity.
-      </p>
-    </div>
-    <!-- Mosaic Gallery Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[240px] lg:auto-rows-[280px]" id="gallery-grid" role="img" aria-label="Photo gallery showing Designers' Cafe atmosphere and offerings">
-      <div class="relative col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[0].src} alt={`${galleryImages[0].title}: ${galleryImages[0].desc}`} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-          <h3 class="text-white text-xl font-bold">{galleryImages[0].title}</h3>
-          <p class="text-white text-sm">{galleryImages[0].desc}</p>
+        @keyframes fade-in-up {
+            from { 
+                opacity: 0; 
+                transform: translateY(32px) scale(0.95);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes fade-in-scale {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s cubic-bezier(.4,0,.2,1) both;
+        }
+        
+        .animate-fade-in-scale {
+            animation: fade-in-scale 0.8s cubic-bezier(.4,0,.2,1) both;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .gallery-item img {
+            transition: transform 0.7s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Grid Adjustments */
+        .gallery-grid {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        /* Mobile First - 2 columns */
+        @media (max-width: 639px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                auto-rows: 200px;
+            }
+            .gallery-item {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+
+        /* Small tablets - 3 columns */
+        @media (min-width: 640px) and (max-width: 767px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                auto-rows: 200px;
+            }
+            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+            .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 2; }
+            .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(7) { grid-column: span 3; grid-row: span 1; }
+            .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 2; }
+            .gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(10) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(11) { grid-column: span 1; grid-row: span 1; }
+        }
+
+        /* Medium screens - 4 columns */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                auto-rows: 220px;
+            }
+            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+            .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 2; }
+            .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(7) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 2; }
+            .gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(10) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(11) { grid-column: span 1; grid-row: span 1; }
+        }
+
+        /* Large screens - 6 columns (original design) */
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(6, 1fr);
+                auto-rows: 240px;
+            }
+            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+            .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 2; }
+            .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(6) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(7) { grid-column: span 3; grid-row: span 1; }
+            .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 2; }
+            .gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(10) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(11) { grid-column: span 1; grid-row: span 1; }
+        }
+
+        /* Extra large screens - 6 columns with larger heights */
+        @media (min-width: 1280px) {
+            .gallery-grid {
+                auto-rows: 260px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <section class="py-20 bg-white" id="gallery">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6" style="color: var(--coffee-900); font-family: var(--font-serif);">
+                    The <span style="color: var(--pencil);">Creative</span> Atmosphere
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto" style="color: var(--coffee-600); font-family: var(--font-sans);">
+                    Step into a space designed to inspire. Where every corner tells a story and 
+                    every detail sparks creativity.
+                </p>
+            </div>
+            
+            <!-- Responsive Mosaic Gallery Grid -->
+            <div class="gallery-grid w-full" id="gallery-grid">
+                <!-- Gallery Item 1 - Featured -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="/public/assets/gal5.jpg" alt="Cozy Interior: Perfect for focused work" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-4">
+                        <h3 class="text-[var(--cream)] text-xl font-bold" style="font-family: var(--font-serif);">Cozy Interior</h3>
+                        <p class="text-[var(--cream)] text-sm" style="font-family: var(--font-sans);">Perfect for focused work</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="/public/assets/gal1.jpg" alt="Signature Drinks: Crafted with passion" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Signature Drinks</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1522992319-0365e5f11656?w=600&h=600&fit=crop" alt="Community: Where creatives connect" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Community</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&h=600&fit=crop" alt="Design Workspace: Where ideas come to life" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Design Workspace</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=600&fit=crop" alt="Events: Design workshops & meetups" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Events</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=600&fit=crop" alt="Pastries & Snacks: Freshly baked daily" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Pastries & Snacks</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 - Wide -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=600&fit=crop" alt="Outdoor Vibes: Relax and enjoy your brew" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Outdoor Vibes</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 - Tall -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&h=800&fit=crop" alt="Evening Atmosphere: Perfect ambiance for night owls" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Evening Atmosphere</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 9 - Medium Wide -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247cd?w=800&h=600&fit=crop" alt="Local Community: Heart of Pembo neighborhood" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-base font-semibold" style="font-family: var(--font-serif);">Local Community</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 10 -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1545665277-5937750d6850?w=600&h=600&fit=crop" alt="Specialty Blends: Unique flavors and aromas" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Specialty Blends</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 11 -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden shadow-lg" style="opacity:0;">
+                    <img src="https://images.unsplash.com/photo-1572119437734-be5729f9d7de?w=600&h=600&fit=crop" alt="Brand Identity: Our iconic logo design" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--coffee-900)] via-[var(--coffee-900)]/70 to-transparent p-3">
+                        <h3 class="text-[var(--cream)] text-sm font-semibold" style="font-family: var(--font-serif);">Brand Identity</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[1].src} alt={`${galleryImages[1].title}: ${galleryImages[1].desc}`} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[1].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[2].src} alt={`${galleryImages[2].title}: ${galleryImages[2].desc}`} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[2].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[3].src} alt={`${galleryImages[3].title}: ${galleryImages[3].desc}`} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[3].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[4].src} alt={`${galleryImages[4].title}: ${galleryImages[4].desc}`} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[4].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[5].src} alt={`${galleryImages[5].title}: ${galleryImages[5].desc}`} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[5].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[6].src} alt={`${galleryImages[6].title}: ${galleryImages[6].desc}`} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[6].title}</h3>
-        </div>
-      </div>
-      <!-- Extra placeholders for balance -->
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[7].src} alt={galleryImages[7].title} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[7].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[8].src} alt={galleryImages[8].title} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[8].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[9].src} alt={galleryImages[9].title} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[9].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[10].src} alt={galleryImages[10].title} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[10].title}</h3>
-        </div>
-      </div>
-      <div class="relative col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-lg gallery-item" style="opacity:1;">
-        <img src={galleryImages[11].src} alt={galleryImages[11].title} class="w-full h-full object-cover" loading="lazy" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <h3 class="text-white text-base font-semibold">{galleryImages[11].title}</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(32px);}
-    to { opacity: 1; transform: translateY(0);}
-  }
-  .animate-fade-in-up {
-    animation: fade-in-up 0.7s cubic-bezier(.4,0,.2,1) both;
-  }
-</style>
-<script>
-  // GSAP animations will be handled by main.js
-  // This ensures consistency and better performance
-</script>
+    </section>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const galleryGrid = document.getElementById('gallery-grid');
+            const galleryItems = galleryGrid?.querySelectorAll('.gallery-item');
+            let animated = false;
+
+            function animateGallery() {
+                if (animated || !galleryItems) return;
+                
+                galleryItems.forEach((item, i) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        if (i === 0) {
+                            // Special animation for the large featured item
+                            item.classList.add('animate-fade-in-scale');
+                        } else {
+                            item.classList.add('animate-fade-in-up');
+                        }
+                    }, i * 120);
+                });
+                
+                animated = true;
+            }
+
+            function handleIntersect(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateGallery();
+                        observer.disconnect();
+                    }
+                });
+            }
+
+            if (galleryGrid) {
+                const observer = new window.IntersectionObserver(handleIntersect, {
+                    threshold: 0.2
+                });
+                observer.observe(galleryGrid);
+            }
+        });
+    </script>
+</body>

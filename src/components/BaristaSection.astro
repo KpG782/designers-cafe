@@ -5,95 +5,770 @@ const baristas = [
     role: "Head Barista",
     desc: "Passionate about coffee and design, Sarah crafts every cup with creativity and care.",
     img: "/assets/barista1.jpg",
-    specialty: "Latte Art & Espresso"
+    specialty: "Latte Art & Espresso",
+    experience: "5+ Years",
+    social: {
+      instagram: "https://instagram.com/sarah_lattes",
+      facebook: "https://facebook.com/sarah.barista",
+      twitter: "https://twitter.com/sarah_coffee"
+    }
   },
   {
     name: "Miguel R.",
     role: "Latte Artist",
     desc: "Miguel brings art to every latte, making your coffee experience memorable.",
     img: "/assets/barista2.jpg",
-    specialty: "Creative Designs"
+    specialty: "Creative Designs",
+    experience: "3+ Years",
+    social: {
+      instagram: "https://instagram.com/miguel_latteart",
+      facebook: "https://facebook.com/miguel.artist",
+      twitter: "https://twitter.com/miguel_designs"
+    }
   },
   {
     name: "Jasmine T.",
     role: "Brew Specialist",
     desc: "Jasmine loves experimenting with blends and flavors for the perfect brew.",
     img: "/assets/barista3.jpg",
-    specialty: "Custom Blends"
+    specialty: "Custom Blends",
+    experience: "4+ Years",
+    social: {
+      instagram: "https://instagram.com/jasmine_brews",
+      facebook: "https://facebook.com/jasmine.coffee",
+      twitter: "https://twitter.com/jasmine_blends"
+    }
+  },
+  {
+    name: "Carlos D.",
+    role: "Coffee Roaster",
+    desc: "Carlos masterfully roasts our signature blends with precision and passion.",
+    img: "/assets/barista4.jpg",
+    specialty: "Roasting Expert",
+    experience: "6+ Years",
+    social: {
+      instagram: "https://instagram.com/carlos_roasts",
+      facebook: "https://facebook.com/carlos.roaster",
+      twitter: "https://twitter.com/carlos_coffee"
+    }
+  },
+  {
+    name: "Luna K.",
+    role: "Pastry Chef",
+    desc: "Luna creates the perfect pastries to complement our coffee experience.",
+    img: "/assets/barista5.jpg",
+    specialty: "Artisan Pastries",
+    experience: "4+ Years",
+    social: {
+      instagram: "https://instagram.com/luna_pastries",
+      facebook: "https://facebook.com/luna.pastry",
+      twitter: "https://twitter.com/luna_sweets"
+    }
   }
 ];
 ---
 
-<section class="py-20" id="baristas" style="background: var(--coffee-900); color: var(--cream);">
+<section class="py-20 relative overflow-hidden" id="baristas" style="background: #2D1B12; color: #F8F4F0;">
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 opacity-5 pointer-events-none">
+    <div class="floating-coffee-1"></div>
+    <div class="floating-coffee-2"></div>
+    <div class="floating-coffee-3"></div>
+  </div>
+
   <div class="container mx-auto px-6 text-center relative z-10">
-    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8" style="color: var(--cream); font-family: var(--font-serif);">
-      Meet Our <span style="color: var(--pencil);">Master Baristas</span>
-    </h2>
-    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12" style="color: var(--coffee-100); font-family: var(--font-sans);">
-      Our team of passionate baristas is dedicated to making every cup a creative experience. Get to know the artisans behind your favorite drinks!
-    </p>
+    <!-- Section Header -->
+    <div class="mb-16 barista-header" style="opacity: 0;">
+      <h2 class="text-4xl md:text-6xl font-serif font-bold mb-8" style="color: #F8F4F0; font-family: Georgia, serif;">
+        Meet Our <span style="color: #D4943A;">Master Baristas</span>
+      </h2>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8" style="color: #E5D5C8; font-family: Arial, sans-serif;">
+        Our team of passionate baristas is dedicated to making every cup a creative experience. Get to know the artisans behind your favorite drinks!
+      </p>
+      <div class="w-24 h-1 mx-auto rounded-full" style="background: #D4943A;"></div>
+    </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-      {baristas.map((barista, i) => (
-        <div class="barista-card bg-[var(--coffee-800)] rounded-2xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300" style="border: 2px solid var(--coffee-700);" key={barista.name}>
-          <div class="relative mb-6">
-            <img src={barista.img} alt={`${barista.name} - ${barista.role}`} class="w-28 h-28 rounded-full mx-auto object-cover border-4 shadow-lg" style="border-color: var(--pencil); background: var(--coffee-700);" />
-            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--pencil); color: var(--coffee-900);">
-              {barista.specialty}
+    <!-- 3D Slider Container -->
+    <div class="relative max-w-6xl mx-auto mb-12">
+      <div class="barista-slider-container" style="perspective: 1200px; opacity: 0;">
+        <div class="barista-slider" id="barista-slider">
+          {baristas.map((barista, i) => (
+            <div 
+              class={`barista-slide ${i === 0 ? 'active' : ''}`}
+              data-index={i}
+              style="transform: translateX(${i * 100}%) rotateY(${i === 0 ? '0deg' : '45deg'}) scale(${i === 0 ? '1' : '0.8'});"
+            >
+              <div class="barista-card-3d">
+                <div class="card-inner">
+                  <!-- Front of card -->
+                  <div class="card-front">
+                    <div class="relative mb-6">
+                      <div class="barista-image-container">
+                        <img 
+                          src={barista.img} 
+                          alt={`${barista.name} - ${barista.role}`} 
+                          class="barista-image"
+                        />
+                        <div class="experience-badge">
+                          {barista.experience}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="barista-info">
+                      <h3 class="text-2xl font-bold mb-2" style="color: #F8F4F0; font-family: Georgia, serif;">
+                        {barista.name}
+                      </h3>
+                      <p class="text-lg font-semibold mb-3" style="color: #D4943A; font-family: Arial, sans-serif;">
+                        {barista.role}
+                      </p>
+                      <div class="specialty-tag">
+                        {barista.specialty}
+                      </div>
+                      <p class="text-sm leading-relaxed mt-4" style="color: #E5D5C8; font-family: Arial, sans-serif;">
+                        {barista.desc}
+                      </p>
+                    </div>
+                    
+                    <!-- Coffee rating stars -->
+                    <div class="rating-container">
+                      <div class="flex justify-center">
+                        <div class="flex text-yellow-400 text-xl">
+                          ★★★★★
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Back of card (Social Media) -->
+                  <div class="card-back">
+                    <div class="social-content">
+                      <h4 class="text-xl font-bold mb-6" style="color: #F8F4F0;">Connect with {barista.name.split(' ')[0]}</h4>
+                      <div class="social-links">
+                        <a href={barista.social.instagram} class="social-link instagram" target="_blank" rel="noopener noreferrer">
+                          <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                          </svg>
+                          <span>Instagram</span>
+                        </a>
+                        <a href={barista.social.facebook} class="social-link facebook" target="_blank" rel="noopener noreferrer">
+                          <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                          </svg>
+                          <span>Facebook</span>
+                        </a>
+                        <a href={barista.social.twitter} class="social-link twitter" target="_blank" rel="noopener noreferrer">
+                          <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                          </svg>
+                          <span>Twitter</span>
+                        </a>
+                      </div>
+                      <p class="text-sm mt-4" style="color: #E5D5C8;">
+                        Follow for daily coffee tips and behind-the-scenes content!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <h3 class="text-xl font-bold mb-2" style="color: var(--cream); font-family: var(--font-serif);">{barista.name}</h3>
-          <p class="text-base font-semibold mb-3" style="color: var(--pencil); font-family: var(--font-sans);">{barista.role}</p>
-          <p class="text-sm leading-relaxed" style="color: var(--coffee-100); font-family: var(--font-sans);">{barista.desc}</p>
-          
-          <!-- Coffee rating stars -->
-          <div class="flex justify-center mt-4">
-            <div class="flex text-yellow-400">
-              <span class="text-lg">★★★★★</span>
-            </div>
-          </div>
+          ))}
         </div>
-      ))}
+      </div>
+      
+      <!-- Slider Controls -->
+      <div class="slider-controls" style="opacity: 0;">
+        <button class="slider-btn prev" id="prev-btn" aria-label="Previous barista">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        <button class="slider-btn next" id="next-btn" aria-label="Next barista">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Slider Indicators -->
+      <div class="slider-indicators" style="opacity: 0;">
+        {baristas.map((_, i) => (
+          <button 
+            class={`indicator ${i === 0 ? 'active' : ''}`}
+            data-index={i}
+            aria-label={`Go to barista ${i + 1}`}
+          ></button>
+        ))}
+      </div>
     </div>
     
     <!-- Team Quote -->
-    <div class="max-w-3xl mx-auto">
-      <div class="glass-morphism p-8 rounded-2xl relative" style="background: var(--coffee-800); border: 2px solid var(--coffee-600);">
-        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full flex items-center justify-center" style="background: var(--pencil);">
-          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+    <div class="max-w-3xl mx-auto team-quote" style="opacity: 0;">
+      <div class="glass-morphism p-8 rounded-2xl relative quote-container">
+        <div class="quote-icon">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
           </svg>
         </div>
-        <blockquote class="text-xl italic mb-4" style="color: var(--cream); font-family: var(--font-serif);">
+        <blockquote class="text-xl italic mb-4" style="color: #F8F4F0; font-family: Georgia, serif;">
           "The perfect blend of great coffee and creative energy. Every cup tells a story, every sip sparks inspiration. This is where our passion for coffee meets our love for design!"
         </blockquote>
-        <cite class="font-semibold" style="color: var(--pencil); font-family: var(--font-sans);">- The Designers' Cafe Barista Team</cite>
+        <cite class="font-semibold" style="color: #D4943A; font-family: Arial, sans-serif;">- The Designers' Cafe Barista Team</cite>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .barista-card {
+  /* Define CSS custom properties */
+  :root {
+    --coffee-900: #2D1B12;
+    --coffee-800: #3D2B22;
+    --coffee-700: #4D3B32;
+    --coffee-600: #5D4B42;
+    --coffee-100: #E5D5C8;
+    --pencil: #D4943A;
+    --cream: #F8F4F0;
+    --font-serif: Georgia, serif;
+    --font-sans: Arial, sans-serif;
+  }
+
+  /* Floating background elements */
+  @keyframes float-coffee {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-30px) rotate(120deg); }
+    66% { transform: translateY(15px) rotate(240deg); }
+  }
+
+  .floating-coffee-1, .floating-coffee-2, .floating-coffee-3 {
+    position: absolute;
+    background: #D4943A;
+    border-radius: 50%;
+    animation: float-coffee 12s ease-in-out infinite;
+  }
+
+  .floating-coffee-1 {
+    top: 20%;
+    left: 10%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+  }
+
+  .floating-coffee-2 {
+    bottom: 30%;
+    right: 15%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 4s;
+  }
+
+  .floating-coffee-3 {
+    top: 60%;
+    left: 20%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 8s;
+  }
+
+  /* 3D Slider Styles */
+  .barista-slider-container {
+    position: relative;
+    height: 500px;
+    overflow: visible;
+  }
+
+  .barista-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .barista-slide {
+    position: absolute;
+    width: 320px;
+    height: 450px;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .barista-card-3d {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+  }
+
+  .barista-slide:hover .barista-card-3d {
+    transform: rotateY(180deg);
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #3D2B22 0%, #4D3B32 100%);
+    border: 2px solid #5D4B42;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #4D3B32 0%, #D4943A 100%);
+  }
+
+  .barista-image-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .barista-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #D4943A;
+    box-shadow: 0 8px 20px rgba(212, 148, 58, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .experience-badge {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: #D4943A;
+    color: #2D1B12;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .specialty-tag {
+    display: inline-block;
+    background: rgba(212, 148, 58, 0.2);
+    color: #D4943A;
+    padding: 6px 16px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #D4943A;
+    margin: 8px 0;
+  }
+
+  .rating-container {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #5D4B42;
+  }
+
+  /* Social Media Styles */
+  .social-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+  }
+
+  .social-link.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  }
+
+  .social-link.facebook {
+    background: #4267B2;
+  }
+
+  .social-link.twitter {
+    background: #1DA1F2;
+  }
+
+  .social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Slider Controls */
+  .slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .slider-btn {
+    background: rgba(212, 148, 58, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .slider-btn:hover {
+    background: #D4943A;
+    transform: scale(1.1);
+  }
+
+  .slider-btn:focus {
+    outline: 2px solid #F8F4F0;
+    outline-offset: 2px;
+  }
+
+  /* Slider Indicators */
+  .slider-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #5D4B42;
+    background: transparent;
+    cursor: pointer;
     transition: all 0.3s ease;
   }
-  
-  .barista-card:hover {
-    box-shadow: 0 12px 40px 0 rgba(212, 148, 58, 0.3);
-    transform: translateY(-8px) scale(1.02);
+
+  .indicator.active,
+  .indicator:hover {
+    background: #D4943A;
+    border-color: #D4943A;
+    transform: scale(1.2);
   }
-  
-  .glass-morphism {
+
+  .indicator:focus {
+    outline: 2px solid #F8F4F0;
+    outline-offset: 2px;
+  }
+
+  /* Quote Styles */
+  .quote-container {
+    background: #3D2B22;
+    border: 2px solid #5D4B42;
     backdrop-filter: blur(10px);
   }
-  
-  /* Animation for barista cards */
-  .barista-card:nth-child(1) { animation-delay: 0.1s; }
-  .barista-card:nth-child(2) { animation-delay: 0.2s; }
-  .barista-card:nth-child(3) { animation-delay: 0.3s; }
+
+  .quote-icon {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: #D4943A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Glass morphism effect */
+  .glass-morphism {
+    backdrop-filter: blur(10px);
+    background: rgba(61, 43, 34, 0.8);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .barista-slider-container {
+      height: 420px;
+    }
+    
+    .barista-slide {
+      width: 280px;
+      height: 380px;
+    }
+    
+    .card-front, .card-back {
+      padding: 20px;
+    }
+    
+    .barista-image {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .slider-controls {
+      padding: 0 10px;
+    }
+    
+    .slider-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  /* Animation classes for scroll triggers */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8) translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-slideInScale {
+    animation: slideInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
 </style>
 
 <script>
-  // GSAP animations will be handled by main.js
-  // This ensures consistency and better performance
+  window.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('baristas');
+    const slider = document.getElementById('barista-slider');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const indicators = document.querySelectorAll('.indicator');
+    const slides = document.querySelectorAll('.barista-slide');
+    
+    let currentIndex = 0;
+    let animated = false;
+    const totalSlides = slides.length;
+
+    // Animation on scroll
+    function animateSection() {
+      if (animated) return;
+      
+      // Header animation
+      const header = document.querySelector('.barista-header');
+      if (header) {
+        setTimeout(() => {
+          header.style.opacity = '1';
+          header.classList.add('animate-fadeInUp');
+        }, 100);
+      }
+      
+      // Slider animation
+      const sliderContainer = document.querySelector('.barista-slider-container');
+      if (sliderContainer) {
+        setTimeout(() => {
+          sliderContainer.style.opacity = '1';
+          sliderContainer.classList.add('animate-slideInScale');
+        }, 300);
+      }
+      
+      // Controls animation
+      const controls = document.querySelector('.slider-controls');
+      const indicatorsEl = document.querySelector('.slider-indicators');
+      if (controls) {
+        setTimeout(() => {
+          controls.style.opacity = '1';
+          controls.classList.add('animate-fadeInUp');
+        }, 500);
+      }
+      if (indicatorsEl) {
+        setTimeout(() => {
+          indicatorsEl.style.opacity = '1';
+          indicatorsEl.classList.add('animate-fadeInUp');
+        }, 600);
+      }
+      
+      // Quote animation
+      const quote = document.querySelector('.team-quote');
+      if (quote) {
+        setTimeout(() => {
+          quote.style.opacity = '1';
+          quote.classList.add('animate-fadeInUp');
+        }, 800);
+      }
+      
+      animated = true;
+    }
+
+    // Intersection Observer for scroll animation
+    if (section) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateSection();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      observer.observe(section);
+    }
+
+    // Slider functionality
+    function updateSlider(newIndex) {
+      currentIndex = newIndex;
+      
+      slides.forEach((slide, index) => {
+        const offset = index - currentIndex;
+        const absOffset = Math.abs(offset);
+        
+        let transform = `translateX(${offset * 320}px)`;
+        
+        if (offset === 0) {
+          // Active slide
+          transform += ' rotateY(0deg) scale(1)';
+          slide.style.zIndex = '10';
+        } else if (absOffset === 1) {
+          // Adjacent slides
+          transform += ` rotateY(${offset > 0 ? '25deg' : '-25deg'}) scale(0.9)`;
+          slide.style.zIndex = '5';
+        } else {
+          // Far slides
+          transform += ` rotateY(${offset > 0 ? '45deg' : '-45deg'}) scale(0.7)`;
+          slide.style.zIndex = '1';
+        }
+        
+        slide.style.transform = transform;
+        slide.classList.toggle('active', index === currentIndex);
+      });
+      
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      const newIndex = (currentIndex + 1) % totalSlides;
+      updateSlider(newIndex);
+    }
+
+    function prevSlide() {
+      const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider(newIndex);
+    }
+
+    // Event listeners
+    if (nextBtn) {
+      nextBtn.addEventListener('click', nextSlide);
+    }
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', prevSlide);
+    }
+
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        updateSlider(index);
+      });
+    });
+
+    // Auto-play functionality
+    let autoPlayInterval = setInterval(nextSlide, 5000);
+
+    // Pause auto-play on hover
+    if (slider) {
+      slider.addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+      });
+      
+      slider.addEventListener('mouseleave', () => {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+      });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!section.matches(':hover')) return;
+      
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let startY = 0;
+    
+    if (slider) {
+      slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+      
+      slider.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        
+        // Only trigger if horizontal swipe is more significant than vertical
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }, { passive: true });
+    }
+
+    // Initialize slider
+    updateSlider(0);
+  });
 </script>

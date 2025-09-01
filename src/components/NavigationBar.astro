@@ -11,18 +11,20 @@
      style="background: var(--cream, #F8F4F0); backdrop-filter: blur(12px);">
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-2">
+      <!-- Logo section - responsive alignment with scroll functionality -->
+      <a href="#hero" class="flex items-center space-x-2 mobile-logo-center logo-link cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" aria-label="Go to top of page">
         <div class="w-10 h-10 flex items-center justify-center animate-fade-in">
           <img 
             src="/assets/logo.png" 
             alt="Designers' Cafe Logo" 
-            class="w-full h-full object-contain"
+            class="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
             style="filter: none;" 
           />
         </div>
-        <span class="text-xl font-bold animate-slide-in-left" style="color: var(--coffee-900, #2E1C09);">Designers' Cafe</span>
-      </div>
+        <span class="text-xl font-bold animate-slide-in-left transition-colors duration-300 hover:text-[var(--pencil)]" style="color: var(--coffee-900, #2E1C09);">Designers' Cafe</span>
+      </a>
       
+      <!-- Desktop navigation links -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="#about" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.1s;" aria-label="Navigate to About section">About</a>
         <a href="#menu" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.2s;" aria-label="Navigate to Menu section">Menu</a>
@@ -32,35 +34,28 @@
         <a href="#contact" class="nav-link hover:text-pencil transition-colors animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09); animation-delay: 0.6s;" aria-label="Navigate to Contact section">Contact</a>
       </div>
       
-      <div class="flex items-center space-x-4">
-        <button class="cta-button px-6 py-2 rounded-full hover:bg-coffee-600 transition-all duration-300 transform hover:scale-105 animate-fade-in focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-          style="background: var(--pencil, #D4943A); color: #fff; animation-delay: 0.6s;"
-          aria-label="Place an order">
-          Order Now
-        </button>
-        <!-- Mobile menu button -->
-        <button class="md:hidden animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" 
-                id="mobile-menu-btn" 
-                style="animation-delay: 0.7s;"
-                aria-label="Toggle mobile menu"
-                aria-expanded="false"
-                aria-controls="mobile-menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
+      <!-- Mobile menu button -->
+      <button class="md:hidden animate-fade-in focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" 
+              id="mobile-menu-btn" 
+              style="animation-delay: 0.7s;"
+              aria-label="Toggle mobile menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
     
     <!-- Mobile menu -->
     <div class="md:hidden mt-4" id="mobile-menu" style="display:none;" role="menu" aria-labelledby="mobile-menu-btn">
       <div class="flex flex-col space-y-4 pb-4 bg-[var(--cream)] rounded-xl shadow-lg p-6">
-        <a href="#about" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to About section">About</a>
-        <a href="#menu" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Menu section">Menu</a>
-        <a href="#gallery" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Gallery section">Gallery</a>
-        <a href="#baristas" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Baristas section">Baristas</a>
-        <a href="#location" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Location section">Location</a>
-        <a href="#contact" class="hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Contact section">Contact</a>
+        <a href="#about" class="mobile-nav-link hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to About section">About</a>
+        <a href="#menu" class="mobile-nav-link hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Menu section">Menu</a>
+        <a href="#gallery" class="mobile-nav-link hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Gallery section">Gallery</a>
+        <a href="#baristas" class="mobile-nav-link hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Baristas section">Baristas</a>
+        <a href="#location" class="mobile-nav-link hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Location section">Location</a>
+        <a href="#contact" class="mobile-nav-link hover:text-pencil transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 focus:rounded" style="color: var(--coffee-900, #2E1C09);" role="menuitem" aria-label="Navigate to Contact section">Contact</a>
       </div>
     </div>
   </div>
@@ -83,14 +78,116 @@
   }
   .nav-link {
     animation: fade-in 0.7s cubic-bezier(.4,0,.2,1) both;
+    position: relative;
+    padding: 8px 0;
+  }
+
+  /* Hover effect for nav links */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--pencil, #D4943A);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link:hover {
+    color: var(--pencil, #D4943A) !important;
+  }
+
+  /* Logo link styling */
+  .logo-link {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 4px;
+  }
+
+  .logo-link:hover {
+    transform: translateY(-1px);
+  }
+
+  .logo-link:active {
+    transform: translateY(0);
+  }
+
+  /* Mobile logo centering */
+  @media (max-width: 768px) {
+    .container {
+      position: relative;
+    }
+    
+    .mobile-logo-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    #mobile-menu-btn {
+      z-index: 10;
+      position: relative;
+    }
+  }
+
+  /* Mobile nav links */
+  .mobile-nav-link {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .mobile-nav-link:hover {
+    background: rgba(212, 148, 58, 0.1);
+    color: var(--pencil, #D4943A) !important;
+    transform: translateX(4px);
+  }
+
+  /* Active section highlighting */
+  .nav-link.active {
+    color: var(--pencil, #D4943A) !important;
+    font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Smooth scrolling styles */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Navbar background transition */
+  #navbar {
+    transition: all 0.3s ease;
+  }
+
+  #navbar.scrolled {
+    background: rgba(248, 244, 240, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 </style>
+
 <script>
   window.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link, .logo-link');
     let isMenuOpen = false;
 
+    // Mobile menu toggle functionality
     function toggleMobileMenu() {
       isMenuOpen = !isMenuOpen;
       if (isMenuOpen) {
@@ -130,6 +227,162 @@
           mobileMenuBtn.focus();
         }
       });
+    }
+
+    // Smooth scrolling functionality
+    function smoothScrollTo(target, offset = 80) {
+      const element = document.querySelector(target);
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Add click handlers to all navigation links (including logo)
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        
+        // Only handle internal anchor links
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          
+          // Close mobile menu if open
+          if (isMenuOpen) {
+            toggleMobileMenu();
+          }
+          
+          // Special handling for hero section scroll to top
+          if (href === '#hero') {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+            updateActiveNavLink('#hero');
+          } else {
+            // Smooth scroll to other sections with offset
+            smoothScrollTo(href);
+            updateActiveNavLink(href);
+          }
+        }
+      });
+    });
+
+    // Update active navigation link
+    function updateActiveNavLink(activeHref) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === activeHref) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Intersection Observer for active section highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = `#${entry.target.id}`;
+          updateActiveNavLink(sectionId);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Navbar background change on scroll
+    let lastScrollY = window.scrollY;
+    
+    function updateNavbarOnScroll() {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      // Optional: Hide navbar on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 200) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollY = currentScrollY;
+    }
+
+    // Throttled scroll handler for better performance
+    let ticking = false;
+    function scrollHandler() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateNavbarOnScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', scrollHandler);
+
+    // Hero section CTA button scrolling
+    const heroButtons = document.querySelectorAll('#hero button, #hero .cta-primary, #hero .cta-secondary');
+    heroButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const buttonText = button.textContent.toLowerCase();
+        
+        if (buttonText.includes('menu') || buttonText.includes('explore')) {
+          e.preventDefault();
+          smoothScrollTo('#menu');
+          updateActiveNavLink('#menu');
+        } else if (buttonText.includes('visit') || buttonText.includes('location')) {
+          e.preventDefault();
+          smoothScrollTo('#location');
+          updateActiveNavLink('#location');
+        }
+      });
+    });
+
+    // Logo special animation on click
+    const logoLink = document.querySelector('.logo-link');
+    if (logoLink) {
+      logoLink.addEventListener('click', () => {
+        const logoImg = logoLink.querySelector('img');
+        if (logoImg) {
+          // Add a small bounce animation when logo is clicked
+          logoImg.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            logoImg.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+              logoImg.style.transform = 'scale(1)';
+            }, 150);
+          }, 100);
+        }
+      });
+    }
+
+    // Initial setup
+    updateNavbarOnScroll();
+    
+    // Set initial active link based on current hash or default to first section
+    const currentHash = window.location.hash || '#hero';
+    if (currentHash !== '#hero') {
+      updateActiveNavLink(currentHash);
     }
   });
 </script>

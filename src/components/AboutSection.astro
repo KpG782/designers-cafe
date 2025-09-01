@@ -5,40 +5,74 @@
 <section class="py-24 bg-white relative" id="about">
   <div class="container mx-auto px-6">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="about-content">
-        <h2 class="text-5xl md:text-6xl font-serif font-bold text-coffee-900 mb-6">
-          Where <span class="text-gradient">Design</span> Meets Coffee
+      <div class="about-content" style="opacity:0;">
+        <h2 class="text-5xl md:text-6xl font-serif font-bold mb-6" style="color: var(--coffee-900); font-family: var(--font-serif);">
+          Where <span style="color: var(--pencil);">Design</span> Meets Coffee
         </h2>
-        <p class="text-lg text-coffee-700 mb-8 leading-relaxed">
+        <p class="text-lg mb-8 leading-relaxed" style="color: var(--coffee-700); font-family: var(--font-sans);">
           Designers' Cafe is a creative sanctuary in Taguig where coffee culture and design inspiration blend together. Founded by passionate creatives, our space is crafted for thinkers, makers, and dreamers to connect, collaborate, and enjoy specialty drinks in a welcoming, inspiring atmosphere.
         </p>
-        <!-- Stats -->
+        <!-- Interactive Stats -->
         <div class="grid grid-cols-3 gap-6 text-center mb-8">
-          <div class="stat-item" style="animation-delay:0.1s">
-            <div class="text-3xl font-bold text-pencil mb-2" data-count="500">0</div>
-            <p class="text-coffee-600 text-sm">Creative Minds Served</p>
+          <div class="stat-item bg-[var(--coffee-50)] rounded-xl p-4 hover:shadow-lg transition-all duration-300 cursor-pointer" style="opacity:0;">
+            <div class="text-3xl font-bold mb-2 counter" style="color: var(--pencil); font-family: var(--font-serif);" data-count="500">0</div>
+            <p class="text-sm" style="color: var(--coffee-600); font-family: var(--font-sans);">Creative Minds Served</p>
           </div>
-          <div class="stat-item" style="animation-delay:0.2s">
-            <div class="text-3xl font-bold text-pencil mb-2" data-count="15">0</div>
-            <p class="text-coffee-600 text-sm">Signature Drinks</p>
+          <div class="stat-item bg-[var(--coffee-50)] rounded-xl p-4 hover:shadow-lg transition-all duration-300 cursor-pointer" style="opacity:0;">
+            <div class="text-3xl font-bold mb-2 counter" style="color: var(--pencil); font-family: var(--font-serif);" data-count="15">0</div>
+            <p class="text-sm" style="color: var(--coffee-600); font-family: var(--font-sans);">Signature Drinks</p>
           </div>
-          <div class="stat-item" style="animation-delay:0.3s">
-            <div class="text-3xl font-bold text-pencil mb-2" data-count="2">0</div>
-            <p class="text-coffee-600 text-sm">Years Brewing</p>
+          <div class="stat-item bg-[var(--coffee-50)] rounded-xl p-4 hover:shadow-lg transition-all duration-300 cursor-pointer" style="opacity:0;">
+            <div class="text-3xl font-bold mb-2 counter" style="color: var(--pencil); font-family: var(--font-serif);" data-count="2">0</div>
+            <p class="text-sm" style="color: var(--coffee-600); font-family: var(--font-sans);">Years Brewing</p>
+          </div>
+        </div>
+        <!-- Interactive Features -->
+        <div class="features-grid grid grid-cols-2 gap-4">
+          <div class="feature-item bg-[var(--coffee-100)] rounded-lg p-4 hover:bg-[var(--coffee-200)] transition-all duration-300 cursor-pointer" style="opacity:0;">
+            <div class="w-8 h-8 mb-2 mx-auto bg-[var(--pencil)] rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">☕</span>
+            </div>
+            <p class="text-sm font-semibold text-center" style="color: var(--coffee-900); font-family: var(--font-sans);">Premium Coffee</p>
+          </div>
+          <div class="feature-item bg-[var(--coffee-100)] rounded-lg p-4 hover:bg-[var(--coffee-200)] transition-all duration-300 cursor-pointer" style="opacity:0;">
+            <div class="w-8 h-8 mb-2 mx-auto bg-[var(--pencil)] rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">🎨</span>
+            </div>
+            <p class="text-sm font-semibold text-center" style="color: var(--coffee-900); font-family: var(--font-sans);">Creative Space</p>
+          </div>
+          <div class="feature-item bg-[var(--coffee-100)] rounded-lg p-4 hover:bg-[var(--coffee-200)] transition-all duration-300 cursor-pointer" style="opacity:0;">
+            <div class="w-8 h-8 mb-2 mx-auto bg-[var(--pencil)] rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">🤝</span>
+            </div>
+            <p class="text-sm font-semibold text-center" style="color: var(--coffee-900); font-family: var(--font-sans);">Community</p>
+          </div>
+          <div class="feature-item bg-[var(--coffee-100)] rounded-lg p-4 hover:bg-[var(--coffee-200)] transition-all duration-300 cursor-pointer" style="opacity:0;">
+            <div class="w-8 h-8 mb-2 mx-auto bg-[var(--pencil)] rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">💡</span>
+            </div>
+            <p class="text-sm font-semibold text-center" style="color: var(--coffee-900); font-family: var(--font-sans);">Inspiration</p>
           </div>
         </div>
       </div>
-      <div class="about-image flex justify-center" style="animation-delay:0.4s">
-        <img 
-          src="/assets/pembo2.jpg" 
-          alt="Signature coffee at Designers' Cafe" 
-          class="rounded-2xl shadow-lg object-cover w-full max-w-xs h-[480px] md:h-[600px]" 
-          style="background: #f8f4f0;"
-        />
+      <div class="about-image flex justify-center relative" style="opacity:0;">
+        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+          <img 
+            src="/assets/pembo2.jpg" 
+            alt="Signature coffee at Designers' Cafe" 
+            class="object-cover w-full max-w-xs h-[480px] md:h-[600px] hover:scale-105 transition-transform duration-700" 
+            style="background: #f8f4f0;"
+          />
+          <!-- Floating coffee beans animation -->
+          <div class="absolute top-4 right-4 w-6 h-6 bg-[var(--coffee-600)] rounded-full floating-bean" style="animation-delay: 0s;"></div>
+          <div class="absolute bottom-8 left-4 w-4 h-4 bg-[var(--coffee-500)] rounded-full floating-bean" style="animation-delay: 2s;"></div>
+          <div class="absolute top-1/2 right-8 w-3 h-3 bg-[var(--pencil)] rounded-full floating-bean" style="animation-delay: 4s;"></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <style>
   @keyframes fade-in-left {
     from { opacity: 0; transform: translateX(-40px);}
@@ -52,17 +86,143 @@
     from { opacity: 0; transform: translateY(32px);}
     to { opacity: 1; transform: translateY(0);}
   }
-  .animate-fade-in-left {
-    animation: fade-in-left 0.8s cubic-bezier(.4,0,.2,1) both;
+  @keyframes floating-bean {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(180deg); }
   }
-  .animate-fade-in-right {
-    animation: fade-in-right 0.8s cubic-bezier(.4,0,.2,1) both;
+  @keyframes counter-up {
+    from { transform: scale(0.8); opacity: 0.5; }
+    to { transform: scale(1); opacity: 1; }
   }
-  .animate-fade-in-up {
-    animation: fade-in-up 0.8s cubic-bezier(.4,0,.2,1) both;
+  
+  .about-content.animate {
+    animation: fade-in-left 0.8s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .about-image.animate {
+    animation: fade-in-right 0.8s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .stat-item.animate {
+    animation: fade-in-up 0.8s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .feature-item.animate {
+    animation: fade-in-up 0.6s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  
+  .floating-bean {
+    animation: floating-bean 6s ease-in-out infinite;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(212,148,58,0.2);
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-2px);
+  }
+  
+  .counter.animate-count {
+    animation: counter-up 0.6s ease-out forwards;
   }
 </style>
+
 <script>
-  // GSAP animations will be handled by main.js
-  // This ensures consistency and better performance
+  window.addEventListener('DOMContentLoaded', () => {
+    const aboutSection = document.getElementById('about');
+    const aboutContent = aboutSection?.querySelector('.about-content');
+    const aboutImage = aboutSection?.querySelector('.about-image');
+    const statItems = aboutSection?.querySelectorAll('.stat-item');
+    const featureItems = aboutSection?.querySelectorAll('.feature-item');
+    const counters = aboutSection?.querySelectorAll('.counter');
+    let animated = false;
+
+    function animateCounters() {
+      counters.forEach((counter, i) => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        let current = 0;
+        const increment = target / 30; // 30 frames for smooth animation
+        
+        const updateCounter = () => {
+          if (current < target) {
+            current += increment;
+            counter.textContent = Math.ceil(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+            counter.classList.add('animate-count');
+          }
+        };
+        
+        setTimeout(updateCounter, i * 200);
+      });
+    }
+
+    function animateAbout() {
+      if (animated) return;
+      
+      // Animate main content
+      aboutContent?.classList.add('animate');
+      aboutImage?.classList.add('animate');
+      
+      // Stagger animate stat items
+      statItems.forEach((item, i) => {
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.classList.add('animate');
+        }, 300 + i * 150);
+      });
+      
+      // Stagger animate feature items
+      featureItems.forEach((item, i) => {
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.classList.add('animate');
+        }, 600 + i * 100);
+      });
+      
+      // Start counter animations
+      setTimeout(animateCounters, 800);
+      
+      animated = true;
+    }
+
+    function handleIntersect(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateAbout();
+          observer.disconnect();
+        }
+      });
+    }
+
+    if (aboutSection) {
+      const observer = new window.IntersectionObserver(handleIntersect, {
+        threshold: 0.3
+      });
+      observer.observe(aboutSection);
+    }
+
+    // Add hover effects for interactive elements
+    statItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.style.transform = 'translateY(-4px) scale(1.05)';
+        item.style.boxShadow = '0 8px 25px rgba(212,148,58,0.2)';
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translateY(0) scale(1)';
+        item.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+      });
+    });
+
+    featureItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.style.transform = 'translateY(-2px)';
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translateY(0)';
+      });
+    });
+  });
 </script>
