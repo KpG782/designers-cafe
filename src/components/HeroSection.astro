@@ -241,7 +241,7 @@ const bgImage = "/assets/midnightbg.jpg"; // adjust path if needed
       
       heroElements.forEach((element, i) => {
         setTimeout(() => {
-          element.style.opacity = '1';
+          (element as HTMLElement).style.opacity = '1';
           element.classList.add('animate');
         }, i * 100);
       });
@@ -249,8 +249,8 @@ const bgImage = "/assets/midnightbg.jpg"; // adjust path if needed
       animated = true;
     }
 
-    function handleIntersect(entries, observer) {
-      entries.forEach(entry => {
+    function handleIntersect(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+      entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           animateHero();
           observer.disconnect();
@@ -259,7 +259,7 @@ const bgImage = "/assets/midnightbg.jpg"; // adjust path if needed
     }
 
     if (heroSection) {
-      const observer = new window.IntersectionObserver(handleIntersect, {
+      const observer = new IntersectionObserver(handleIntersect, {
         threshold: 0.3
       });
       observer.observe(heroSection);

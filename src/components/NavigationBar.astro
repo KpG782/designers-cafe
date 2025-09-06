@@ -190,13 +190,13 @@
     // Mobile menu toggle functionality
     function toggleMobileMenu() {
       isMenuOpen = !isMenuOpen;
-      if (isMenuOpen) {
+      if (isMenuOpen && mobileMenu && mobileMenuBtn) {
         mobileMenu.style.display = 'block';
         mobileMenuBtn.setAttribute('aria-expanded', 'true');
         // Focus the first menu item for accessibility
         const firstMenuItem = mobileMenu.querySelector('a');
         if (firstMenuItem) firstMenuItem.focus();
-      } else {
+      } else if (mobileMenu && mobileMenuBtn) {
         mobileMenu.style.display = 'none';
         mobileMenuBtn.setAttribute('aria-expanded', 'false');
       }
@@ -215,7 +215,8 @@
 
       // Close menu when clicking outside
       document.addEventListener('click', (e) => {
-        if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        const target = e.target as Node;
+        if (isMenuOpen && mobileMenu && mobileMenuBtn && !mobileMenu.contains(target) && !mobileMenuBtn.contains(target)) {
           toggleMobileMenu();
         }
       });
@@ -230,7 +231,7 @@
     }
 
     // Smooth scrolling functionality
-    function smoothScrollTo(target, offset = 80) {
+    function smoothScrollTo(target: string, offset = 80) {
       const element = document.querySelector(target);
       if (element) {
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -274,7 +275,7 @@
     });
 
     // Update active navigation link
-    function updateActiveNavLink(activeHref) {
+    function updateActiveNavLink(activeHref: string) {
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === activeHref) {
@@ -310,17 +311,19 @@
     function updateNavbarOnScroll() {
       const currentScrollY = window.scrollY;
       
-      if (currentScrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-      
-      // Optional: Hide navbar on scroll down, show on scroll up
-      if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        navbar.style.transform = 'translateY(-100%)';
-      } else {
-        navbar.style.transform = 'translateY(0)';
+      if (navbar) {
+        if (currentScrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        
+        // Optional: Hide navbar on scroll down, show on scroll up
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.style.transform = 'translateY(0)';
+        }
       }
       
       lastScrollY = currentScrollY;

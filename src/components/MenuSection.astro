@@ -246,20 +246,20 @@ let selectedCategory = categories[0].key;
       }
     ];
 
-    function showCategory(category) {
+    function showCategory(category: string) {
       // Hide all items
       menuItems.forEach(item => {
-        item.style.display = 'none';
-        item.style.opacity = '0';
+        (item as HTMLElement).style.display = 'none';
+        (item as HTMLElement).style.opacity = '0';
       });
 
       // Show items for selected category with stagger animation
       const categoryItems = document.querySelectorAll(`.menu-item-${category}`);
       categoryItems.forEach((item, index) => {
         setTimeout(() => {
-          item.style.display = 'block';
+          (item as HTMLElement).style.display = 'block';
           setTimeout(() => {
-            item.style.opacity = '1';
+            (item as HTMLElement).style.opacity = '1';
             item.classList.add('animate-fade-in-up');
           }, 50);
         }, index * 100);
@@ -274,7 +274,7 @@ let selectedCategory = categories[0].key;
       // Update button states
       categoryButtons.forEach(btn => {
         const btnCategory = btn.getAttribute('data-category');
-        if (btnCategory === category) {
+        if (btnCategory === category && categoryData) {
           btn.className = `category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 ${categoryData.color} ring-2 ring-[var(--pencil)]`;
         } else {
           btn.className = `category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--pencil)] focus:ring-offset-2 glass-morphism text-[var(--coffee-700)] hover:bg-[var(--pencil)] hover:text-white`;
@@ -288,7 +288,7 @@ let selectedCategory = categories[0].key;
       // Animate category buttons
       categoryButtons.forEach((btn, i) => {
         setTimeout(() => {
-          btn.style.opacity = '1';
+          (btn as HTMLElement).style.opacity = '1';
           btn.classList.add('animate-fade-in');
         }, i * 100);
       });
@@ -301,8 +301,8 @@ let selectedCategory = categories[0].key;
       animated = true;
     }
 
-    function handleIntersect(entries, observer) {
-      entries.forEach(entry => {
+    function handleIntersect(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+      entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           animateMenu();
           observer.disconnect();

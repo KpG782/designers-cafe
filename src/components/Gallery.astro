@@ -318,7 +318,7 @@
                 
                 galleryItems.forEach((item, i) => {
                     setTimeout(() => {
-                        item.style.opacity = '1';
+                        (item as HTMLElement).style.opacity = '1';
                         if (i === 0) {
                             // Special animation for the large featured item
                             item.classList.add('animate-fade-in-scale');
@@ -331,8 +331,8 @@
                 animated = true;
             }
 
-            function handleIntersect(entries, observer) {
-                entries.forEach(entry => {
+            function handleIntersect(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+                entries.forEach((entry: IntersectionObserverEntry) => {
                     if (entry.isIntersecting) {
                         animateGallery();
                         observer.disconnect();
@@ -341,7 +341,7 @@
             }
 
             if (galleryGrid) {
-                const observer = new window.IntersectionObserver(handleIntersect, {
+                const observer = new IntersectionObserver(handleIntersect, {
                     threshold: 0.2
                 });
                 observer.observe(galleryGrid);

@@ -68,9 +68,9 @@ const baristas = [
 ];
 ---
 
-<section class="py-20 relative overflow-hidden" id="baristas" style="background: #2D1B12; color: #F8F4F0;">
+<section class="py-20 relative overflow-hidden" id="baristas" style="background: #F5F1EC; color: #2D1B12;">
   <!-- Animated background elements -->
-  <div class="absolute inset-0 opacity-5 pointer-events-none">
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
     <div class="floating-coffee-1"></div>
     <div class="floating-coffee-2"></div>
     <div class="floating-coffee-3"></div>
@@ -79,10 +79,10 @@ const baristas = [
   <div class="container mx-auto px-6 text-center relative z-10">
     <!-- Section Header -->
     <div class="mb-16 barista-header" style="opacity: 0;">
-      <h2 class="text-4xl md:text-6xl font-serif font-bold mb-8" style="color: #F8F4F0; font-family: Georgia, serif;">
+      <h2 class="text-4xl md:text-6xl font-serif font-bold mb-8" style="color: #2D1B12; font-family: Georgia, serif;">
         Meet Our <span style="color: #D4943A;">Master Baristas</span>
       </h2>
-      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8" style="color: #E5D5C8; font-family: Arial, sans-serif;">
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8" style="color: #4D3B32; font-family: Arial, sans-serif;">
         Our team of passionate baristas is dedicated to making every cup a creative experience. Get to know the artisans behind your favorite drinks!
       </p>
       <div class="w-24 h-1 mx-auto rounded-full" style="background: #D4943A;"></div>
@@ -118,7 +118,7 @@ const baristas = [
                     </div>
                     
                     <div class="barista-info">
-                      <h3 class="text-2xl font-bold mb-2" style="color: #F8F4F0; font-family: Georgia, serif;">
+                      <h3 class="text-2xl font-bold mb-2" style="color: #4D3B32; font-family: Georgia, serif;">
                         {barista.name}
                       </h3>
                       <p class="text-lg font-semibold mb-3" style="color: #D4943A; font-family: Arial, sans-serif;">
@@ -127,18 +127,9 @@ const baristas = [
                       <div class="specialty-tag">
                         {barista.specialty}
                       </div>
-                      <p class="text-sm leading-relaxed mt-4" style="color: #E5D5C8; font-family: Arial, sans-serif;">
+                      <p class="text-sm leading-relaxed mt-4" style="color: #4D3B32; font-family: Arial, sans-serif;">
                         {barista.desc}
                       </p>
-                    </div>
-                    
-                    <!-- Coffee rating stars -->
-                    <div class="rating-container">
-                      <div class="flex justify-center">
-                        <div class="flex text-yellow-400 text-xl">
-                          ★★★★★
-                        </div>
-                      </div>
                     </div>
                   </div>
                   
@@ -212,7 +203,7 @@ const baristas = [
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
           </svg>
         </div>
-        <blockquote class="text-xl italic mb-4" style="color: #F8F4F0; font-family: Georgia, serif;">
+        <blockquote class="text-xl italic mb-4" style="color: #4D3B32; font-family: Georgia, serif;">
           "The perfect blend of great coffee and creative energy. Every cup tells a story, every sip sparks inspiration. This is where our passion for coffee meets our love for design!"
         </blockquote>
         <cite class="font-semibold" style="color: #D4943A; font-family: Arial, sans-serif;">- The Designers' Cafe Barista Team</cite>
@@ -323,14 +314,14 @@ const baristas = [
     backface-visibility: hidden;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #3D2B22 0%, #4D3B32 100%);
-    border: 2px solid #5D4B42;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F4F0 100%);
+    border: 2px solid #D4943A;
   }
 
   .card-back {
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, #4D3B32 0%, #D4943A 100%);
+    background: linear-gradient(135deg, #D4943A 0%, #B8811A 100%);
   }
 
   .barista-image-container {
@@ -363,20 +354,14 @@ const baristas = [
 
   .specialty-tag {
     display: inline-block;
-    background: rgba(212, 148, 58, 0.2);
-    color: #D4943A;
+    background: rgba(212, 148, 58, 0.15);
+    color: #B8811A;
     padding: 6px 16px;
     border-radius: 25px;
     font-size: 0.8rem;
     font-weight: 600;
     border: 1px solid #D4943A;
     margin: 8px 0;
-  }
-
-  .rating-container {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid #5D4B42;
   }
 
   /* Social Media Styles */
@@ -495,9 +480,10 @@ const baristas = [
 
   /* Quote Styles */
   .quote-container {
-    background: #3D2B22;
-    border: 2px solid #5D4B42;
+    background: #FFFFFF;
+    border: 2px solid #D4943A;
     backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px rgba(212, 148, 58, 0.15);
   }
 
   .quote-icon {
@@ -517,7 +503,7 @@ const baristas = [
   /* Glass morphism effect */
   .glass-morphism {
     backdrop-filter: blur(10px);
-    background: rgba(61, 43, 34, 0.8);
+    background: rgba(255, 255, 255, 0.9);
   }
 
   /* Responsive Design */
