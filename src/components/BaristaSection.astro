@@ -600,7 +600,7 @@ const baristas = [
       if (animated) return;
       
       // Header animation
-      const header = document.querySelector('.barista-header');
+      const header = document.querySelector('.barista-header') as HTMLElement;
       if (header) {
         setTimeout(() => {
           header.style.opacity = '1';
@@ -609,7 +609,7 @@ const baristas = [
       }
       
       // Slider animation
-      const sliderContainer = document.querySelector('.barista-slider-container');
+      const sliderContainer = document.querySelector('.barista-slider-container') as HTMLElement;
       if (sliderContainer) {
         setTimeout(() => {
           sliderContainer.style.opacity = '1';
@@ -618,8 +618,8 @@ const baristas = [
       }
       
       // Controls animation
-      const controls = document.querySelector('.slider-controls');
-      const indicatorsEl = document.querySelector('.slider-indicators');
+      const controls = document.querySelector('.slider-controls') as HTMLElement;
+      const indicatorsEl = document.querySelector('.slider-indicators') as HTMLElement;
       if (controls) {
         setTimeout(() => {
           controls.style.opacity = '1';
@@ -634,7 +634,7 @@ const baristas = [
       }
       
       // Quote animation
-      const quote = document.querySelector('.team-quote');
+      const quote = document.querySelector('.team-quote') as HTMLElement;
       if (quote) {
         setTimeout(() => {
           quote.style.opacity = '1';
@@ -660,10 +660,11 @@ const baristas = [
     }
 
     // Slider functionality
-    function updateSlider(newIndex) {
+    function updateSlider(newIndex: number) {
       currentIndex = newIndex;
       
       slides.forEach((slide, index) => {
+        const slideElement = slide as HTMLElement;
         const offset = index - currentIndex;
         const absOffset = Math.abs(offset);
         
@@ -672,18 +673,18 @@ const baristas = [
         if (offset === 0) {
           // Active slide
           transform += ' rotateY(0deg) scale(1)';
-          slide.style.zIndex = '10';
+          slideElement.style.zIndex = '10';
         } else if (absOffset === 1) {
           // Adjacent slides
           transform += ` rotateY(${offset > 0 ? '25deg' : '-25deg'}) scale(0.9)`;
-          slide.style.zIndex = '5';
+          slideElement.style.zIndex = '5';
         } else {
           // Far slides
           transform += ` rotateY(${offset > 0 ? '45deg' : '-45deg'}) scale(0.7)`;
-          slide.style.zIndex = '1';
+          slideElement.style.zIndex = '1';
         }
         
-        slide.style.transform = transform;
+        slideElement.style.transform = transform;
         slide.classList.toggle('active', index === currentIndex);
       });
       
@@ -734,7 +735,7 @@ const baristas = [
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (!section.matches(':hover')) return;
+      if (!section?.matches(':hover')) return;
       
       if (e.key === 'ArrowLeft') {
         prevSlide();
