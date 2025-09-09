@@ -151,8 +151,14 @@ let selectedCategory = categories[0].key;
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-items">
       {categories.map(cat =>
         cat.items.map((item, idx) => (
-          <div class={`menu-item menu-item-${cat.key} rounded-2xl p-6 shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl`}
-            style={`background: var(--coffee-50, #FDF7F0); border: 2px solid var(--coffee-200, #efcca5); display: ${cat.key === selectedCategory ? 'block' : 'none'}; opacity:0;`}>
+          <div class={`menu-item menu-item-${cat.key} rounded-2xl p-6 shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl cursor-pointer`}
+            style={`background: var(--coffee-50, #FDF7F0); border: 2px solid var(--coffee-200, #efcca5); display: ${cat.key === selectedCategory ? 'block' : 'none'}; opacity:0;`}
+            data-item-name={item.name}
+            data-item-price={item.price}
+            data-item-desc={item.desc}
+            data-item-image={cat.image}
+            data-item-category={cat.name}
+            onclick="openMenuModal(this)">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-xl font-bold" style="color: var(--coffee-900, #2E1C09); font-family: var(--font-serif);">{item.name}</h3>
               <span class="text-2xl font-bold" style="color: var(--pencil, #D4943A); font-family: var(--font-sans);">₱{item.price}</span>
@@ -163,9 +169,69 @@ let selectedCategory = categories[0].key;
               </div>
             </div>
             <p class="text-sm mb-4 text-center" style="color: var(--coffee-700, #6B3614); font-family: var(--font-sans);">{item.desc}</p>
+            <div class="text-center">
+              <button class="view-details-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+                style="background: var(--pencil, #D4943A); color: white; border: none;">
+                View Details
+              </button>
+            </div>
           </div>
         ))
       )}
+    </div>
+
+    <!-- Modal -->
+    <div id="menu-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeMenuModal()" aria-label="Close modal">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        
+        <div class="modal-header">
+          <div class="modal-image-container">
+            <img id="modal-image" src="" alt="" class="modal-image" />
+          </div>
+          <div class="modal-title-section">
+            <span id="modal-category" class="modal-category"></span>
+            <h3 id="modal-title" class="modal-title"></h3>
+            <p id="modal-price" class="modal-price"></p>
+          </div>
+        </div>
+        
+        <div class="modal-body">
+          <p id="modal-description" class="modal-description"></p>
+          
+          <div class="modal-customization">
+            <h4 class="customization-title">Customize Your Order</h4>
+            <div class="quantity-selector">
+              <label for="quantity">Quantity:</label>
+              <div class="quantity-controls">
+                <button type="button" onclick="decreaseQuantity()" class="quantity-btn">-</button>
+                <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+                <button type="button" onclick="increaseQuantity()" class="quantity-btn">+</button>
+              </div>
+            </div>
+            
+            <div class="special-instructions">
+              <label for="instructions">Special Instructions:</label>
+              <textarea id="instructions" placeholder="Any special requests? (e.g., extra hot, less sugar, etc.)" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <div class="total-price">
+            <span>Total: </span>
+            <span id="modal-total" class="total-amount">₱0</span>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-secondary" onclick="closeMenuModal()">Cancel</button>
+            <button class="btn-primary" onclick="addToOrder()">Add to Order</button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- <div class="text-center mt-12">
       <button class="view-full-menu bg-transparent border-2 px-8 py-4 rounded-full font-semibold hover:bg-[var(--pencil)] hover:text-white transition-all duration-300 transform hover:scale-105"
@@ -195,6 +261,305 @@ let selectedCategory = categories[0].key;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-content {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F4F0 100%);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--pencil, #D4943A);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(212, 148, 58, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--coffee-900);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .modal-close:hover {
+    background: var(--pencil);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .modal-header {
+    display: flex;
+    gap: 20px;
+    padding: 30px 30px 20px;
+    align-items: center;
+  }
+
+  .modal-image-container {
+    flex-shrink: 0;
+  }
+
+  .modal-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--pencil);
+    box-shadow: 0 8px 20px rgba(212, 148, 58, 0.3);
+  }
+
+  .modal-title-section {
+    flex: 1;
+  }
+
+  .modal-category {
+    display: inline-block;
+    background: rgba(212, 148, 58, 0.15);
+    color: #B8811A;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--coffee-900);
+    margin: 8px 0;
+    font-family: Georgia, serif;
+  }
+
+  .modal-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--pencil);
+    font-family: Arial, sans-serif;
+  }
+
+  .modal-body {
+    padding: 0 30px 20px;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    color: var(--coffee-700);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-family: Arial, sans-serif;
+  }
+
+  .modal-customization {
+    background: rgba(212, 148, 58, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(212, 148, 58, 0.2);
+  }
+
+  .customization-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--coffee-900);
+    margin-bottom: 16px;
+    font-family: Georgia, serif;
+  }
+
+  .quantity-selector {
+    margin-bottom: 20px;
+  }
+
+  .quantity-selector label {
+    display: block;
+    font-weight: 600;
+    color: var(--coffee-800);
+    margin-bottom: 8px;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .quantity-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--pencil);
+    background: white;
+    color: var(--pencil);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .quantity-btn:hover {
+    background: var(--pencil);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  #quantity {
+    width: 60px;
+    text-align: center;
+    border: 2px solid rgba(212, 148, 58, 0.3);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--coffee-900);
+  }
+
+  .special-instructions label {
+    display: block;
+    font-weight: 600;
+    color: var(--coffee-800);
+    margin-bottom: 8px;
+  }
+
+  .special-instructions textarea {
+    width: 100%;
+    border: 2px solid rgba(212, 148, 58, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+
+  .special-instructions textarea:focus {
+    outline: none;
+    border-color: var(--pencil);
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px 30px;
+    border-top: 1px solid rgba(212, 148, 58, 0.2);
+    margin-top: 20px;
+  }
+
+  .total-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--coffee-900);
+  }
+
+  .total-amount {
+    color: var(--pencil);
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    background: var(--pencil);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #B8811A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 148, 58, 0.3);
+  }
+
+  .btn-secondary {
+    background: rgba(212, 148, 58, 0.1);
+    color: var(--coffee-900);
+    border: 2px solid rgba(212, 148, 58, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(212, 148, 58, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive Modal */
+  @media (max-width: 768px) {
+    .modal-content {
+      margin: 10px;
+      max-height: 95vh;
+    }
+    
+    .modal-header {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px 20px 15px;
+    }
+    
+    .modal-image {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .modal-title {
+      font-size: 1.5rem;
+    }
+    
+    .modal-body {
+      padding: 0 20px 15px;
+    }
+    
+    .modal-footer {
+      flex-direction: column;
+      gap: 16px;
+      padding: 15px 20px 20px;
+    }
+    
+    .modal-actions {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+      padding: 14px 28px;
+    }
   }
 </style>
 
@@ -328,6 +693,121 @@ let selectedCategory = categories[0].key;
           showCategory(category);
         }
       });
+    });
+
+    // Modal functionality
+    let currentItemPrice = 0;
+
+    (window as any).openMenuModal = function(element: HTMLElement) {
+      const itemName = element.getAttribute('data-item-name');
+      const itemPrice = element.getAttribute('data-item-price');
+      const itemDesc = element.getAttribute('data-item-desc');
+      const itemImage = element.getAttribute('data-item-image');
+      const itemCategory = element.getAttribute('data-item-category');
+
+      if (itemName && itemPrice && itemDesc && itemImage && itemCategory) {
+        currentItemPrice = parseInt(itemPrice);
+
+        // Update modal content
+        const modal = document.getElementById('menu-modal');
+        const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+        const modalCategory = document.getElementById('modal-category');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalDescription = document.getElementById('modal-description');
+        const quantityInput = document.getElementById('quantity') as HTMLInputElement;
+        const instructionsTextarea = document.getElementById('instructions') as HTMLTextAreaElement;
+
+        if (modal && modalImage && modalCategory && modalTitle && modalPrice && modalDescription && quantityInput && instructionsTextarea) {
+          modalImage.src = itemImage;
+          modalImage.alt = itemName;
+          modalCategory.textContent = itemCategory;
+          modalTitle.textContent = itemName;
+          modalPrice.textContent = `₱${itemPrice}`;
+          modalDescription.textContent = itemDesc;
+          quantityInput.value = '1';
+          instructionsTextarea.value = '';
+
+          updateTotal();
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    };
+
+    (window as any).closeMenuModal = function() {
+      const modal = document.getElementById('menu-modal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    };
+
+    (window as any).increaseQuantity = function() {
+      const quantityInput = document.getElementById('quantity') as HTMLInputElement;
+      if (quantityInput) {
+        const currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+          quantityInput.value = (currentValue + 1).toString();
+          updateTotal();
+        }
+      }
+    };
+
+    (window as any).decreaseQuantity = function() {
+      const quantityInput = document.getElementById('quantity') as HTMLInputElement;
+      if (quantityInput) {
+        const currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+          quantityInput.value = (currentValue - 1).toString();
+          updateTotal();
+        }
+      }
+    };
+
+    function updateTotal() {
+      const quantityInput = document.getElementById('quantity') as HTMLInputElement;
+      const totalElement = document.getElementById('modal-total');
+      
+      if (quantityInput && totalElement) {
+        const quantity = parseInt(quantityInput.value);
+        const total = currentItemPrice * quantity;
+        totalElement.textContent = `₱${total}`;
+      }
+    }
+
+    (window as any).addToOrder = function() {
+      const itemName = document.getElementById('modal-title')?.textContent;
+      const quantity = (document.getElementById('quantity') as HTMLInputElement)?.value;
+      const instructions = (document.getElementById('instructions') as HTMLTextAreaElement)?.value;
+      const total = document.getElementById('modal-total')?.textContent;
+
+      // Here you can implement the actual order functionality
+      // For now, we'll show an alert
+      let orderSummary = `Added to order:\n${itemName} x${quantity}\nTotal: ${total}`;
+      if (instructions) {
+        orderSummary += `\nSpecial Instructions: ${instructions}`;
+      }
+      
+      alert(orderSummary);
+      
+      // Close modal
+      (window as any).closeMenuModal();
+    };
+
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('menu-modal');
+      if (modal && e.target === modal) {
+        (window as any).closeMenuModal();
+      }
+    });
+
+    // Close modal with escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        (window as any).closeMenuModal();
+      }
     });
   });
 </script>
