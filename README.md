@@ -1,6 +1,5 @@
 # Designers' Cafe Website 📱☕
 
-**A Modern, Interactive Website for Tita Carol's Coffee Shop**
 
 Welcome to the digital home of Designers' Cafe! This website has been crafted to showcase your unique coffee shop and attract customers in the Pembo, Taguig community.
 
